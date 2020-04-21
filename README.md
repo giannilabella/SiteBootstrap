@@ -3,7 +3,7 @@
 
 ## Elementos Utilizados
 - [x] NavBar
-- [ ] Jumbotron
+- [x] Jumbotron
 
 ## Site Hospedado
 [CookBook](http://cookthebook.000webhostapp.com/)
