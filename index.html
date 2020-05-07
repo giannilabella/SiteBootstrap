@@ -21,11 +21,12 @@
             .card
             {
                 height: 400px;
+                margin-bottom: 50px;
             }
 
-            .row
+            .hideCard
             {
-                margin-bottom: 50px;
+                display: none;
             }
         </style>
     </head>
@@ -53,11 +54,13 @@
                             Tipos de prato
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Acompanhamentos</a>
-                            <a class="dropdown-item" href="#">Saladas</a>
-                            <a class="dropdown-item" href="#">Lanches</a>
-                            <a class="dropdown-item" href="#">Prato Principal</a>
-                            <a class="dropdown-item" href="#">Sobremesas</a>
+                            <a class="dropdown-item" href="#" onclick="selectCategory(1)" >Acompanhamentos</a>
+                            <a class="dropdown-item" href="#" onclick="selectCategory(2)" >Saladas</a>
+                            <a class="dropdown-item" href="#" onclick="selectCategory(3)" >Lanches</a>
+                            <a class="dropdown-item" href="#" onclick="selectCategory(4)" >Prato Principal</a>
+                            <a class="dropdown-item" href="#" onclick="selectCategory(5)" >Sobremesas</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" onclick="selectCategory(0)" >Ver Todos</a>
                         </div>
                     </li>
 
@@ -88,80 +91,149 @@
             
             <!-- Cards start -->
             <div class="container">
+                <!--SideBar start-->
+                <!--SideBar end-->
 
-                <div class="row">
+                <div class="row row-cols-3">
 
-                    <div class="col-md-4">
+                    <div class="col-md-4 acomp divCard">
                         <div class="card">
                             <img src="Images/batata_assada_com_alecrim.jpg" class="card-img-top" alt="batata_assada_com_alecrim">
                             <div class="card-body">
                                 <h5 class="card-title">Batata Assada com Alecrim</h5>
                                 <p class="card-text preparo">Preparo: 40 minutos</p>
                                 <p class="card-text rendimento">Rendimento: 8 porções</p>
-                                <a href="#" class="btn btn-primary">Ver Receita</a>
+                                <a href="#" class="btn btn-info">Ver Receita</a>
+                                <!--https://gourmetadois.com/receita/batatas-assadas-com-alecrim-40.html#-->
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-4 sobre divCard">
                         <div class="card">
                             <img src="Images/petit_gateau.jpg" class="card-img-top" alt="petit_gateau">
                             <div class="card-body">
                                 <h5 class="card-title">Petit Gateau</h5>
                                 <p class="card-text preparo">Preparo: 30 minutos</p>
                                 <p class="card-text rendimento">Rendimento: 8 porções</p>
-                                <a href="#" class="btn btn-primary">Ver Receita</a>
+                                <a href="#" class="btn btn-info">Ver Receita</a>
+                                <!--https://www.tudogostoso.com.br/receita/6179-petit-gateau.html-->
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-4 salada divCard">
                         <div class="card">
                             <img src="Images/salada_de_folhas_com_atum.jpg" class="card-img-top" alt="salada_de_folhas_com_atum">
                             <div class="card-body">
                                 <h5 class="card-title">Salada de Folhas com Atum</h5>
                                 <p class="card-text preparo">Preparo: 15 minutos</p>
                                 <p class="card-text rendimento">Rendimento: 8 porções</p>
-                                <a href="#" class="btn btn-primary">Ver Receita</a>
+                                <a href="#" class="btn btn-info">Ver Receita</a>
+                                <!--https://www.tudogostoso.com.br/receita/137819-salada-de-folhas-com-atum.html-->
                             </div>
                         </div>
                     </div>
-
-                </div>
-
-                <div class="row">
                     
-                    <div class="col-md-4">
+                    <div class="col-md-4 lanche divCard">
                         <div class="card">
                             <img src="Images/coxinha.jpg" class="card-img-top" alt="coxinha">
                             <div class="card-body">
                                 <h5 class="card-title">Coxinha</h5>
                                 <p class="card-text preparo">Preparo: 180 minutos</p>
                                 <p class="card-text rendimento">Rendimento: 50 porções</p>
-                                <a href="#" class="btn btn-primary">Ver Receita</a>
+                                <a href="#" class="btn btn-info">Ver Receita</a>
+                                <!--https://www.tudogostoso.com.br/receita/3798-coxinha-de-frango.html-->
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-4 princ divCard">
                         <div class="card">
                             <img src="Images/paella_com_frutos_do_mar.jpg" class="card-img-top" alt="paella_com_frutos_do_mar">
                             <div class="card-body">
                                 <h5 class="card-title">Paella com Frutos do Mar</h5>
                                 <p class="card-text preparo">Preparo: 30 minutos</p>
                                 <p class="card-text rendimento">Rendimento: 8 porções</p>
-                                <a href="#" class="btn btn-primary">Ver Receita</a>
+                                <a href="#" class="btn btn-info">Ver Receita</a>
+                                <!--https://www.cheftime.com.br/receita/paella-valenciana-com-frutos-do-mar-->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 sobre divCard">
+                        <div class="card">
+                            <img src="Images/churros.jpg" class="card-img-top" alt="churros">
+                            <div class="card-body">
+                                <h5 class="card-title">Churros</h5>
+                                <p class="card-text preparo">Preparo: 30 minutos</p>
+                                <p class="card-text rendimento">Rendimento: 9 porções</p>
+                                <a href="#" class="btn btn-info">Ver Receita</a>
+                                <!--https://www.tudogostoso.com.br/receita/60647-churros-caseiros.html-->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 acomp divCard">
+                        <div class="card">
+                            <img src="Images/pure_de_batata.jpg" class="card-img-top" alt="pure_de_batata">
+                            <div class="card-body">
+                                <h5 class="card-title">Purê de Batata</h5>
+                                <p class="card-text preparo">Preparo: 60 minutos</p>
+                                <p class="card-text rendimento">Rendimento: 5 porções</p>
+                                <a href="#" class="btn btn-info">Ver Receita</a>
+                                <!--https://www.tudogostoso.com.br/receita/59-pure-de-batata.html-->
                             </div>
                         </div>
                     </div>
                     
+                    <div class="col-md-4 lanche divCard">
+                        <div class="card">
+                            <img src="Images/pao_de_queijo.jpg" class="card-img-top" alt="pao_de_queijo">
+                            <div class="card-body">
+                                <h5 class="card-title">Pão de Queijo</h5>
+                                <p class="card-text preparo">Preparo: 40 minutos</p>
+                                <p class="card-text rendimento">Rendimento: 30 porções</p>
+                                <a href="#" class="btn btn-info">Ver Receita</a>
+                                <!--https://www.tudogostoso.com.br/receita/1443-pao-de-queijo.html-->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 princ divCard">
+                        <div class="card">
+                            <img src="Images/strogonoff_de_frango.jpg" class="card-img-top" alt="strogonoff_de_frango">
+                            <div class="card-body">
+                                <h5 class="card-title">Strogonoff de Frango</h5>
+                                <p class="card-text preparo">Preparo: 30 minutos</p>
+                                <p class="card-text rendimento">Rendimento: 4 porções</p>
+                                <a href="#" class="btn btn-info">Ver Receita</a>
+                                <!--https://www.tudogostoso.com.br/receita/2744-estrogonofe-da-casa.html-->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4 salada divCard">
+                        <div class="card">
+                            <img src="Images/salada_de_macarrao.jpg" class="card-img-top" alt="salada_de_macarrao">
+                            <div class="card-body">
+                                <h5 class="card-title">Salada de Macarrão</h5>
+                                <p class="card-text preparo">Preparo: 30 minutos</p>
+                                <p class="card-text rendimento">Rendimento: 8 porções</p>
+                                <a href="#" class="btn btn-info">Ver Receita</a>
+                                <!--https://www.tudogostoso.com.br/receita/61580-salada-de-macarrao.html-->
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
             <!-- Cards end -->
 
         </div>
-      
+
+        <script src="script.js"></script>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
