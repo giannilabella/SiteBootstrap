@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <title>CookBook</title>
-        <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+        <link rel="shortcut icon" href="Images/favicon.png" type="image/x-icon">
 
         <!-- Required meta tags -->
         <meta charset="utf-8">
@@ -10,6 +10,24 @@
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   
+        <style>
+            img
+            {
+                height: inherit;
+                max-height: 200px;
+            }
+
+            .card
+            {
+                height: 400px;
+            }
+
+            .row
+            {
+                margin-bottom: 50px;
+            }
+        </style>
     </head>
 
     <body>
@@ -17,7 +35,7 @@
         <!-- NavBar start -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="padding-left: 15%; padding-right: 15%;">
             <a class="navbar-brand" href="#">
-                <img src="icon.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+                <img src="Images/icon.svg" width="30" height="30" class="d-inline-block align-top" alt="">
                 CookBook
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,7 +54,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="#">Acompanhamentos</a>
-                            <a class="dropdown-item" href="#">Entradas</a>
+                            <a class="dropdown-item" href="#">Saladas</a>
                             <a class="dropdown-item" href="#">Lanches</a>
                             <a class="dropdown-item" href="#">Prato Principal</a>
                             <a class="dropdown-item" href="#">Sobremesas</a>
@@ -66,7 +84,81 @@
                 <p>Adicione a sua receita aqui.</p>
                 <a class="btn btn-info btn-lg" href="#" role="button">Criar receita</a>
             </div>
-            <!-- Jumbotron end -->
+            <!-- Jumbotron end --> 
+            
+            <!-- Cards start -->
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="Images/batata_assada_com_alecrim.jpg" class="card-img-top" alt="batata_assada_com_alecrim">
+                            <div class="card-body">
+                                <h5 class="card-title">Batata Assada com Alecrim</h5>
+                                <p class="card-text preparo">Preparo: 40 minutos</p>
+                                <p class="card-text rendimento">Rendimento: 8 porções</p>
+                                <a href="#" class="btn btn-primary">Ver Receita</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="Images/petit_gateau.jpg" class="card-img-top" alt="petit_gateau">
+                            <div class="card-body">
+                                <h5 class="card-title">Petit Gateau</h5>
+                                <p class="card-text preparo">Preparo: 30 minutos</p>
+                                <p class="card-text rendimento">Rendimento: 8 porções</p>
+                                <a href="#" class="btn btn-primary">Ver Receita</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="Images/salada_de_folhas_com_atum.jpg" class="card-img-top" alt="salada_de_folhas_com_atum">
+                            <div class="card-body">
+                                <h5 class="card-title">Salada de Folhas com Atum</h5>
+                                <p class="card-text preparo">Preparo: 15 minutos</p>
+                                <p class="card-text rendimento">Rendimento: 8 porções</p>
+                                <a href="#" class="btn btn-primary">Ver Receita</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="Images/coxinha.jpg" class="card-img-top" alt="coxinha">
+                            <div class="card-body">
+                                <h5 class="card-title">Coxinha</h5>
+                                <p class="card-text preparo">Preparo: 180 minutos</p>
+                                <p class="card-text rendimento">Rendimento: 50 porções</p>
+                                <a href="#" class="btn btn-primary">Ver Receita</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="Images/paella_com_frutos_do_mar.jpg" class="card-img-top" alt="paella_com_frutos_do_mar">
+                            <div class="card-body">
+                                <h5 class="card-title">Paella com Frutos do Mar</h5>
+                                <p class="card-text preparo">Preparo: 30 minutos</p>
+                                <p class="card-text rendimento">Rendimento: 8 porções</p>
+                                <a href="#" class="btn btn-primary">Ver Receita</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+            <!-- Cards end -->
 
         </div>
       
