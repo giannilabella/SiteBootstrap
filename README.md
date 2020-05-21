@@ -1,5 +1,5 @@
 # SiteBootstrap
-#### * Aprendendo a usar Bootstrap
+* Aprendendo a usar Bootstrap
 
 ## Elementos Utilizados
 * [x] NavBar
