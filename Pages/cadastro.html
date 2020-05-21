@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>CookBook</title>
+        <link rel="shortcut icon" href="../Images/favicon.png" type="image/x-icon">
+
+        <!-- Required meta tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+        <style>
+            .jumbotron
+            {
+                height: 80%;
+                width: 60%;
+
+                margin: 5% auto;
+            }
+
+            h1
+            {
+                margin-bottom: 5vh;
+            }
+
+            .content
+            {
+                height: 100%;
+                padding: auto;
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- NavBar start -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="padding-left: 15%; padding-right: 15%;">
+            <a class="navbar-brand" href="../index.html">
+                <img src="../Images/icon.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+                CookBook
+            </a>
+            
+            <div id="navbarText">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home<span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- NavBar end -->
+
+        <div class="content">
+            <!-- Form start -->
+            <div class="jumbotron">
+                <h1 class="display-4">Criar Receita</h1>
+                <form action="../index.html">
+                    <div class="form-row">
+                        <div class="form-group col-lg-12">
+                            <label for="nomeReceita">Nome da Receita:</label>
+                            <input type="text" class="form-control form-control-lg" id="nomeReceita">
+                        </div>
+
+                        <div class="form-group col-lg-3 col-md-12">
+                            <label for="tempoPreparo">Tempo de Preparo: (minutos)</label>
+                            <input type="number" class="form-control" id="tempoPreparo" min="1">
+                        </div>
+
+                        <div class="form-group col-lg-3 col-md-12">
+                            <label for="numeroPorcoes">Número de Porções:</label>
+                            <input type="number" class="form-control" id="numeroPorcoes" min="1">
+                        </div>
+
+                        <div class="form-group col-lg-3 col-md-12">
+                            <label for="categorias">Categoria:</label>
+                            <select class="custom-select mr-sm-2" id="categorias">
+                                <option selected>Escolha...</option>
+                                <option value="1">Acompanhamentos</option>
+                                <option value="2">Saladas</option>
+                                <option value="3">Lanches</option>
+                                <option value="4">Prato Principal</option>
+                                <option value="5">Sobremesas</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group col-lg-3 col-md-12">
+                            <label for="linkImagem">Link da Imagem:</label>
+                            <input type="text" class="form-control" id="linkImagem">
+                        </div>
+
+                        <div class="form-group col-lg-6 col-md-12">
+                            <label for="listaIngredientes">Ingredientes: (1 por linha)</label>
+                            <textarea class="form-control" id="listaIngredientes" rows="5"></textarea>
+                        </div>
+
+                        <div class="form-group col-lg-6 col-md-12">
+                            <label for="listaPassosPreparo">Passos do Preparo: (1 por linha)</label>
+                            <textarea class="form-control" id="listaPassosPreparo" rows="5"></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-info">Enviar receita</button>
+                </form>
+            </div>
+            <!-- Form end -->
+        </div>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+</html>

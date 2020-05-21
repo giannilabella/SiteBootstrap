@@ -12,14 +12,11 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
    
         <style>
-            img
+            .card-img
             {
-                max-height: 200px;
-            }
-
-            .row
-            {
-                align-items: center;
+                width: 100%;
+                height: auto;
+                object-fit: cover;
             }
 
             .card
@@ -38,7 +35,7 @@
 
         <!-- NavBar start -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="padding-left: 15%; padding-right: 15%;">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="index.html">
                 <img src="Images/icon.svg" width="30" height="30" class="d-inline-block align-top" alt="">
                 CookBook
             </a>
@@ -49,7 +46,7 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
                     </li>
 
                     <li class="nav-item dropdown">
@@ -90,7 +87,7 @@
                 <p class="lead">Descubra novas receitas e compartilhe as suas com todos.</p>
                 <hr class="my-4">
                 <p>Adicione a sua receita aqui.</p>
-                <a class="btn btn-info btn-lg" href="#" role="button">Criar receita</a>
+                <a class="btn btn-info btn-lg" href="Pages/cadastro.html" role="button">Criar receita</a>
             </div>
             <!-- Jumbotron end --> 
             
@@ -101,12 +98,12 @@
 
                     <div class="col-md-4 col-sm-12 acomp divCard">
                         <div class="card">
-                            <img src="Images/batata_assada_com_alecrim.jpg" class="card-img-top img-fluid" alt="batata_assada_com_alecrim">
+                            <img src="Images/batata_assada_com_alecrim.jpg" class="card-img-top img-fluid card-img" alt="batata_assada_com_alecrim">
                             <div class="card-body">
                                 <h5 class="card-title">Batata Assada com Alecrim</h5>
                                 <p class="card-text preparo">Preparo: 40 minutos</p>
                                 <p class="card-text rendimento">Rendimento: 8 porções</p>
-                                <a href="#" class="btn btn-info">Ver Receita</a>
+                                <a href="Pages/item01.html" class="btn btn-info">Ver Receita</a>
                                 <!--https://gourmetadois.com/receita/batatas-assadas-com-alecrim-40.html#-->
                             </div>
                         </div>
@@ -114,7 +111,7 @@
 
                     <div class="col-md-4 col-sm-12 sobre divCard">
                         <div class="card">
-                            <img src="Images/petit_gateau.jpg" class="card-img-top img-fluid" alt="petit_gateau">
+                            <img src="Images/petit_gateau.jpg" class="card-img-top img-fluid card-img" alt="petit_gateau">
                             <div class="card-body">
                                 <h5 class="card-title">Petit Gateau</h5>
                                 <p class="card-text preparo">Preparo: 30 minutos</p>
@@ -127,7 +124,7 @@
 
                     <div class="col-md-4 col-sm-12 salada divCard">
                         <div class="card">
-                            <img src="Images/salada_de_folhas_com_atum.jpg" class="card-img-top img-fluid" alt="salada_de_folhas_com_atum">
+                            <img src="Images/salada_de_folhas_com_atum.jpg" class="card-img-top img-fluid card-img" alt="salada_de_folhas_com_atum">
                             <div class="card-body">
                                 <h5 class="card-title">Salada de Folhas com Atum</h5>
                                 <p class="card-text preparo">Preparo: 15 minutos</p>
@@ -140,7 +137,7 @@
                     
                     <div class="col-md-4 col-sm-12 lanche divCard">
                         <div class="card">
-                            <img src="Images/coxinha.jpg" class="card-img-top img-fluid" alt="coxinha">
+                            <img src="Images/coxinha.jpg" class="card-img-top img-fluid card-img" alt="coxinha">
                             <div class="card-body">
                                 <h5 class="card-title">Coxinha</h5>
                                 <p class="card-text preparo">Preparo: 180 minutos</p>
@@ -153,7 +150,7 @@
 
                     <div class="col-md-4 col-sm-12 princ divCard">
                         <div class="card">
-                            <img src="Images/paella_com_frutos_do_mar.jpg" class="card-img-top img-fluid" alt="paella_com_frutos_do_mar">
+                            <img src="Images/paella_com_frutos_do_mar.jpg" class="card-img-top img-fluid card-img" alt="paella_com_frutos_do_mar">
                             <div class="card-body">
                                 <h5 class="card-title">Paella com Frutos do Mar</h5>
                                 <p class="card-text preparo">Preparo: 30 minutos</p>
@@ -166,7 +163,7 @@
 
                     <div class="col-md-4 col-sm-12 sobre divCard">
                         <div class="card">
-                            <img src="Images/churros.jpg" class="card-img-top img-fluid" alt="churros">
+                            <img src="Images/churros.jpg" class="card-img-top img-fluid card-img" alt="churros">
                             <div class="card-body">
                                 <h5 class="card-title">Churros</h5>
                                 <p class="card-text preparo">Preparo: 30 minutos</p>
@@ -179,7 +176,7 @@
 
                     <div class="col-md-4 col-sm-12 acomp divCard">
                         <div class="card">
-                            <img src="Images/pure_de_batata.jpg" class="card-img-top img-fluid" alt="pure_de_batata">
+                            <img src="Images/pure_de_batata.jpg" class="card-img-top img-fluid card-img" alt="pure_de_batata">
                             <div class="card-body">
                                 <h5 class="card-title">Purê de Batata</h5>
                                 <p class="card-text preparo">Preparo: 60 minutos</p>
@@ -192,7 +189,7 @@
                     
                     <div class="col-md-4 col-sm-12 lanche divCard">
                         <div class="card">
-                            <img src="Images/pao_de_queijo.jpg" class="card-img-top img-fluid" alt="pao_de_queijo">
+                            <img src="Images/pao_de_queijo.jpg" class="card-img-top img-fluid card-img" alt="pao_de_queijo">
                             <div class="card-body">
                                 <h5 class="card-title">Pão de Queijo</h5>
                                 <p class="card-text preparo">Preparo: 40 minutos</p>
@@ -205,7 +202,7 @@
 
                     <div class="col-md-4 col-sm-12 princ divCard">
                         <div class="card">
-                            <img src="Images/strogonoff_de_frango.jpg" class="card-img-top img-fluid" alt="strogonoff_de_frango">
+                            <img src="Images/strogonoff_de_frango.jpg" class="card-img-top img-fluid card-img" alt="strogonoff_de_frango">
                             <div class="card-body">
                                 <h5 class="card-title">Strogonoff de Frango</h5>
                                 <p class="card-text preparo">Preparo: 30 minutos</p>
@@ -218,7 +215,7 @@
                     
                     <div class="col-md-4 col-sm-12 salada divCard">
                         <div class="card">
-                            <img src="Images/salada_de_macarrao.jpg" class="card-img-top img-fluid" alt="salada_de_macarrao">
+                            <img src="Images/salada_de_macarrao.jpg" class="card-img-top img-fluid card-img" alt="salada_de_macarrao">
                             <div class="card-body">
                                 <h5 class="card-title">Salada de Macarrão</h5>
                                 <p class="card-text preparo">Preparo: 30 minutos</p>
@@ -236,7 +233,7 @@
 
         </div>
 
-        <script src="script.js"></script>
+        <script src="JavaScript/script.js"></script>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

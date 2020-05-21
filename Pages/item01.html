@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Item 01</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="shortcut icon" href="../Images/favicon.png" type="image/x-icon">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <style>
+            .img{
+                margin-right: auto;
+                margin-left: auto;
+                width: 70%;
+                height: 300px;
+                margin-top: 100px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .img img{
+                width: 100%;
+                height: 300px;
+                object-fit: cover;
+                opacity: 0.8;
+                border-radius: 30px;
+            }
+
+            .img h1{
+                padding-right: 120px;
+                padding-left: 120px;
+                font-size: 50px;
+                color: #fff;
+                position: absolute;
+            }
+
+            .preparo{
+                display: grid;
+                width: 70%;
+                margin-left: auto;
+                margin-right: auto;
+                grid-template-columns: 50% 50%;
+            }
+
+            .preparo .ingre ul{
+                list-style: none;
+            }
+
+            .preparo .ingre ul li{
+                font-size: 30px;
+                margin-top: 20px;
+                border: 1px solid #000;
+                border-radius: 10px;
+                width: 90%;
+                padding: 15px;
+            }
+
+            .ingre p{
+                margin-top: 20px;
+                display: flex;
+                justify-content: center;
+            }
+
+            .ingre p span{
+                font-size: 35px;
+                font-weight: bold;
+            }
+
+            .icon{
+                width: 50px;
+                height: auto;
+            }
+
+
+            .preparo .modo ul li{
+                font-size: 20px;
+                margin-top: 20px;
+                border-bottom: 1px solid #000;
+                width: 90%;
+                padding: 5px;
+            }
+
+            .modo p{
+                margin-top: 20px;
+                display: flex;
+                justify-content: center;
+            }
+
+            .modo p span{
+                font-size: 35px;
+                font-weight: bold;
+            }
+
+            @media only screen and (max-width: 1000px){
+                .img{
+                    margin-top: 50px;
+                }
+
+                .preparo{
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="padding-left: 15%; padding-right: 15%;">
+            <a class="navbar-brand" href="#">
+                <img src="../Images/icon.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+                CookBook
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home <span class="sr-only">(current)</span></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Sobre nós</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="img">
+            <img src="../Images/batata_assada_com_alecrim.jpg">
+            <h1>Batata Assada com Alecrim</h1>
+        </div>
+
+        <div class="preparo">
+            <div class="ingre">
+                <p>
+                    <svg width="70" height="80" viewBox="0 0 70 80" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="icon">
+                        <rect width="69.8452" height="80" fill="url(#pattern0)"/>
+                        <defs>
+                        <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                        <use xlink:href="#image0" transform="translate(-0.072695) scale(0.00763593 0.00666667)"/>
+                        </pattern>
+                        <image id="image0" width="150" height="150" xlink:href="data:image/png;base64,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"/>
+                        </defs>
+                    </svg>
+                    <span>Ingredientes:</span>
+                </p>
+                <ul>
+                    <li>2 batatas</li>
+                    <li>1 pitada de alecrim</li>
+                    <li>50ml de óleo</li>
+                </ul>
+            </div>
+
+            <div class="modo">
+                <p>
+                    <img src="../Images/cooking.png" class="icon">
+                    <span>Preparo:</span>
+                </p>
+                <ul>
+                    <li>Corte as batatas</li>
+                    <li>Salpique o alecrim</li>
+                    <li>Unte a forma</li>
+                    <li>Coloque as batatas no forno</li>
+                    <li>Asse as batatas no forno por 45min</li>
+                    <li>Sal e pimenta a gosto</li>
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>
