@@ -9,9 +9,24 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link 
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous"
+        >
    
         <style>
+            a {
+                text-decoration: none;
+                color: #000;
+                transition-duration: 200ms;
+            }
+            a:hover {
+                text-decoration: underline;
+                color: #5a5a5a;
+            }
+
             .card-img
             {
                 width: 100%;
@@ -19,7 +34,7 @@
                 object-fit: cover;
             }
 
-            .card
+            .container .card
             {
                 margin-bottom: 50px;
             }
@@ -31,42 +46,68 @@
 
             
             footer{
-                bottom: 0;
-                width: 100%;
-                height: 250px;
-                background-color: #343a40;
-            }
-
-            .copyright{
-                bottom: 0;
-                color: #fff;
-                width: 100%;
-                height: 40px;
-                background-color: #1a1b1b;
-                text-align: center;
-                padding-top: 5px;
+                background: #e9ecef;
             }
 
             .itens{
-                position: absolute;
-                width: 100%;
+                margin: auto;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .itens button {
+                width: 180px;
+                margin: 8px 0;
+            }
+
+            .accordion{
+                margin: auto;
                 display: flex;
                 align-items: center;
                 justify-content: space-evenly;
             }
 
-            .accordion{
-                width: 120px;
-                height: 60px;
-                margin: 25px;
-                background-color: lightseagreen;
-                color: #fff;
-                font-size: 24px;
-                border-radius: 10px;
-                text-align: center;
+            .accordion .card {
+                margin: 8px 0;
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .update {
+                display: flex;
+                align-items: center;
+
+                width: 80%;
+            }
+            .update + .update {
+                margin-top: 8px;
+            }
+
+            .data {
                 display: flex;
                 align-items: center;
                 justify-content: center;
+
+                border: #5a5a5a solid 1px;
+                height: 40px;
+                width: 40px;
+                margin-right: 16px;
+                border-radius: 10%;
+            }
+
+            .copyright{
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                bottom: 0;
+                height: 40px;
+
+                color: #fff;
             }
         </style>
     </head>
@@ -79,8 +120,15 @@
                 <img src="Images/icon.svg" width="30" height="30" class="d-inline-block align-top" alt="">
                 CookBook
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarText"
+                aria-controls="navbarText"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
             </button>
             
             <div class="collapse navbar-collapse" id="navbarText">
@@ -105,7 +153,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Sobre nós</a>
+                        <a class="nav-link" href="#sobrefooter">Sobre nós</a>
                     </li>
                 </ul>
 
@@ -273,24 +321,131 @@
 
         </div>
 
-        <footer>
-            <div class="itens">
-                <a href="#" class="accordion">Eae</a>
-                <a href="#" class="accordion">galera</a>
-                <a href="#" class="accordion">dawdawd</a>
-                <a href="#" class="accordion">wdawdaw</a>
+        <footer id="sobrefooter">
+            <p class="itens col-md-11 col-lg-8">
+                <button 
+                    class="btn btn-info"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#about" 
+                    aria-expanded="false"
+                    aria-controls="about"
+                >
+                        Sobre nós
+                </button>
+                <button 
+                    class="btn btn-info"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#devs" 
+                    aria-expanded="false"
+                    aria-controls="devs"
+                >
+                        Desenvolvedores
+                </button>
+                <button 
+                    class="btn btn-info"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#updates" 
+                    aria-expanded="false"
+                    aria-controls="updates"
+                >
+                        Últimas atualizações
+                </button>
+            </p>
+            
+            <div class="accordion col-md-11 col-lg-10">
+                <div class="col">
+                    <div class="collapse multi-collapse" id="about">
+                        <div class="card card-body">
+                            <h5>CookBook</h5>
+                            <p>Somos um site de compartilhamento de receitas</p>
+
+                            <h6>Redes</h6>
+                            <div>
+                                <a href="">
+                                    <img src="Images/facebook.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+                                </a>
+                                <a href="">
+                                    <img src="Images/twitter.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+                                </a>
+                                <a href="">
+                                    <img src="Images/instagram.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="collapse multi-collapse" id="devs">
+                        <div class="card card-body">
+                            <a href="https://github.com/Gianni-Lab/SiteBootstrap">Open Source</a>
+                            <hr>
+                            <label for="bug">Reportar bug:</label>
+                            <div class="input-group">
+                                <input id="bug" type="text" class="form-control" placeholder="Descrição" aria-label="Descrição" aria-describedby="button-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Enviar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="collapse multi-collapse" id="updates">
+                        <div class="card card-body">
+                            <div class="update">
+                                <div class="data">
+                                    08 <br> JUN
+                                </div>
+                                <div>
+                                    Adicionado o elemento Accordion
+                                </div>
+                            </div>
+                            <div class="update">
+                                <div class="data">
+                                    25 <br> MAI
+                                </div>
+                                <div>
+                                    Adicionado o elemento Cards
+                                </div>
+                            </div>
+                            <div class="update">
+                                <div class="data">
+                                    11 <br> MAI
+                                </div>
+                                <div>
+                                    Adicionado o elemento Jumbotron
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </footer>
 
-        <div class="copyright">
+        <div class="copyright bg-dark">
             &copy; Todos os direitos reservados a CookBook
         </div>
 
         <script src="JavaScript/script.js"></script>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script 
+            src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous">
+        </script>
+        <script 
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous">
+        </script>
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous">
+        </script>
     </body>
 </html>
