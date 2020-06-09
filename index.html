@@ -53,24 +53,26 @@
                 margin: auto;
                 display: flex;
                 align-items: center;
-                justify-content: space-between;
+                justify-content: center;
             }
 
             .itens button {
                 width: 180px;
-                margin: 8px 0;
+                margin: 8px;
             }
 
             .accordion{
                 margin: auto;
                 display: flex;
+                flex-direction: column;
                 align-items: center;
-                justify-content: space-evenly;
+                justify-content: center;
             }
 
             .accordion .card {
                 margin: 8px 0;
 
+                width: 50vw;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -79,8 +81,9 @@
             .update {
                 display: flex;
                 align-items: center;
+                justify-content: start;
 
-                width: 80%;
+                width: 45%;
             }
             .update + .update {
                 margin-top: 8px;
@@ -108,6 +111,23 @@
                 height: 40px;
 
                 color: #fff;
+            }
+
+            @media only screen and (max-width: 600px) {
+                .itens{
+                    display: flex;
+                    flex-direction: column;
+                }
+                .accordion .card {
+                    width: 90vw;
+                }
+                
+            }
+
+            @media only screen and (max-width: 950px) {
+                .update {
+                    width: 90%;
+                }
             }
         </style>
     </head>
@@ -322,7 +342,7 @@
         </div>
 
         <footer id="sobrefooter">
-            <p class="itens col-md-11 col-lg-8">
+            <p class="itens">
                 <button 
                     class="btn btn-info"
                     type="button"
@@ -355,9 +375,9 @@
                 </button>
             </p>
             
-            <div class="accordion col-md-11 col-lg-10">
-                <div class="col">
-                    <div class="collapse multi-collapse" id="about">
+            <div class="accordion" id="accordionExample">
+                <div>
+                    <div class="collapse" id="about" data-parent="#accordionExample">
                         <div class="card card-body">
                             <h5>CookBook</h5>
                             <p>Somos um site de compartilhamento de receitas</p>
@@ -377,8 +397,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="collapse multi-collapse" id="devs">
+                <div>
+                    <div class="collapse" id="devs" data-parent="#accordionExample">
                         <div class="card card-body">
                             <a href="https://github.com/Gianni-Lab/SiteBootstrap">Open Source</a>
                             <hr>
@@ -392,8 +412,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="collapse multi-collapse" id="updates">
+                <div>
+                    <div class="collapse" id="updates" data-parent="#accordionExample">
                         <div class="card card-body">
                             <div class="update">
                                 <div class="data">
