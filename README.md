@@ -11,6 +11,7 @@
 * [x] Cards
 * [x] Form
 * [x] Accordion
+* [x] Carousel
 ---
 ## Grupo
 * [Eduardo Correia](https://github.com/eduardo-ehsc)
