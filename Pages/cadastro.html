@@ -32,8 +32,66 @@
                 padding: auto;
             }
 
-            .custom-file-label::after{
-                content: "Procurar" !important;
+            .files{
+                width: 100%;
+                height: max-content;
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: flex-start;
+                margin-top: 15px;
+                margin-left: 5px;
+            }
+
+            .files p{
+                width: max-content;
+                height: max-content;
+                border: 1px solid black;
+                border-radius: 4px;
+                padding: 0 5px 0 5px;
+                margin-right: 10px;
+            }
+
+            .add-img{
+                border: none;
+                border-radius: 8px;
+                z-index: 2;
+                outline: none;
+                position: absolute;
+                bottom: 5px;
+                right: 5px;
+            }
+
+            .upload-file{
+                width: 100%;
+                height: 100px;
+                position: relative;
+                margin-left: 5px;
+                margin-right: 5px;
+                border: 1px solid #ced4da;
+                border-radius: 4px;
+                margin-top: 30px;
+            }
+
+            .upload-file p{
+                margin-top: -30px;
+            }
+
+            .file-input{
+                display: none;
+            }
+
+            .label-file{
+                z-index: 2;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: black;
             }
         </style>
     </head>
@@ -70,17 +128,17 @@
                             <input type="text" class="form-control form-control-lg" id="nomeReceita">
                         </div>
 
-                        <div class="form-group col-lg-3 col-md-12">
+                        <div class="form-group col-lg-4 col-md-12">
                             <label for="tempo">Tempo de Preparo: (minutos)</label>
-                            <input type="number" class="form-control" id="tempo" min="1">
+                            <input type="time" class="form-control" id="tempo" min="1">
                         </div>
 
-                        <div class="form-group col-lg-3 col-md-12">
+                        <div class="form-group col-lg-4 col-md-12">
                             <label for="porcoes">Número de Porções:</label>
                             <input type="number" class="form-control" id="porcoes" min="1">
                         </div>
 
-                        <div class="form-group col-lg-3 col-md-12">
+                        <div class="form-group col-lg-4 col-md-12">
                             <label for="categorias">Categoria:</label>
                             <select class="custom-select mr-sm-2" id="categorias">
                                 <option selected>Escolha...</option>
@@ -92,17 +150,21 @@
                             </select>
                         </div>
 
-                        <div class="form-group col-lg-3 col-md-12">
-                            <!-- <label for="linkImagem">Link da Imagem:</label>
-                            <input type="text" class="form-control" id="linkImagem"> -->
-                            <!-- <label for="arquivoImagem">Imagem da receita:</label>
-                            <input type="file" class="form-control" id="arquivoImagem"> -->
-                            <label for="arquivoImagem">Imagem da receita:</label>
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="arquivoImagem">
-                                <label class="custom-file-label" for="arquivoImagem"></label>
-                            </div>
+                        
+                        <div class="upload-file">
+                            <p>Imagens:</p>
+                            <input type="file" class="file-input" id="inputGroupFile02" onchange="showName()">
+                            <label for="inputGroupFile02" class="label-file">Escolha um arquivo</label>
+
+                            <button type="button" onclick="addImage()" class="add-img btn btn-info">
+                                Adicionar
+                            </button>
                         </div>
+
+                        <div class="files">
+        
+                        </div>
+
 
                         <div class="form-group col-lg-6 col-md-12">
                             <label for="listaIngredientes">Ingredientes: (1 por linha)</label>
@@ -123,6 +185,29 @@
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script>
+            function showName(){
+                let inputValue = document.getElementById('inputGroupFile02').value
+                let formatedName = inputValue.substring(12);
+
+                let labelEl = document.querySelector('.label-file')
+                labelEl.innerHTML = formatedName;
+                console.log(formatedName);
+            }
+
+            function addImage(){
+                let inputValue = document.getElementById('inputGroupFile02').value
+                let formatedName = inputValue.substring(12);
+                document.querySelector('.label-file').innerHTML = "Escolha outro arquivo";
+
+                let filesDiv = document.querySelector('.files');
+                let pElement = document.createElement('p');
+                let pText = document.createTextNode(formatedName);
+                pElement.appendChild(pText);
+                filesDiv.appendChild(pElement);
+                inputValue = "";
+            }
+        </script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
