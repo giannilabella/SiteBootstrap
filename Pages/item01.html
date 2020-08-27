@@ -6,6 +6,7 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="shortcut icon" href="../Images/favicon.png" type="image/x-icon">
+        <script src="https://kit.fontawesome.com/01dde3cf5b.js" crossorigin="anonymous"></script>
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -22,20 +23,28 @@
                 align-items: center;
             }
 
-            .img img{
-                width: 100%;
-                height: 300px;
-                object-fit: cover;
-                opacity: 0.8;
-                border-radius: 30px;
-            }
-
             .img h1{
                 padding-right: 120px;
                 padding-left: 120px;
                 font-size: 50px;
-                color: #fff;
+                color: #dfdfdf;
                 position: absolute;
+            }
+
+            .slide-img
+            {
+                width: 100%;
+                height: 300px;
+            }
+
+            .slide-img img
+            {
+                width: 70vw;
+                height: 300px;
+                object-fit: cover;
+                filter: blur(2px);
+                border-radius: 30px;
+                cursor: pointer;
             }
 
             .preparo{
@@ -121,18 +130,44 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="../index.html">Home <span class="sr-only">(current)</span></a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Sobre nós</a>
+                        <a class="nav-link" href="../index.html">
+                            <i class="fas fa-home"></i>
+                            Home
+                            <span class="sr-only">(current)</span>
+                        </a>
                     </li>
                 </ul>
             </div>
         </nav>
 
         <div class="img">
-            <img src="../Images/batata_assada_com_alecrim.jpg">
+            <!-- <img src="../Images/batata_assada_com_alecrim.jpg"> -->
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active slide-img">
+                        <img src="../Images/batata_assada_com_alecrim.jpg" alt="Primeiro Slide" id="slide-img1" onclick="focusImg(this)">
+                    </div>
+                    <div class="carousel-item slide-img">
+                        <img src="../Images/batata_assada_com_alecrim_2.jpg" alt="Segundo Slide" id="slide-img2" onclick="focusImg(this)">
+                    </div>
+                    <div class="carousel-item slide-img">
+                        <img src="../Images/batata_assada_com_alecrim_3.jpg" alt="Terceiro Slide" id="slide-img3" onclick="focusImg(this)">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Anterior</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Próximo</span>
+                </a>
+            </div>
             <h1>Batata Assada com Alecrim</h1>
         </div>
 
@@ -172,6 +207,90 @@
                 </ul>
             </div>
         </div>
+
+        <div id="myModal" class="modal">
+            <span class="close">&times;</span>
+          
+            <img class="modal-content" id="img01">
+        </div>
+
+        <!-- modal style -->
+        <style>
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1;
+                padding-top: 100px;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgb(0,0,0);
+                background-color: rgba(0,0,0,0.9);
+            }
+            
+            .modal-content {
+                margin: auto;
+                display: block;
+                width: 80%;
+                max-width: 700px;
+            }
+
+            .modal-content, #caption {
+                animation-name: zoom;
+                animation-duration: 0.6s;
+            }
+
+            @keyframes zoom {
+                from {transform:scale(0)}
+                to {transform:scale(1)}
+            }
+
+            .close {
+                position: absolute;
+                top: 15px;
+                right: 35px;
+                color: #f1f1f1;
+                font-size: 40px;
+                font-weight: bold;
+                transition: 0.3s;
+            }
+
+            .close:hover,
+            .close:focus {
+                color: #bbb;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+            @media only screen and (max-width: 700px){
+                .modal-content {
+                    width: 100%;
+                }
+            }
+        </style>
+
+        <!-- modal script -->
+        <script>
+            var modal = document.getElementById("myModal");
+            var modalImg = document.getElementById("img01");
+
+            var img = document.getElementById("slide-img1");
+            
+            function focusImg(imgElement){
+                document.getElementById("carouselExampleIndicators").style.display = "none";
+                modal.style.display = "block";
+                modalImg.src = imgElement.src;
+            }
+
+            var span = document.getElementsByClassName("close")[0];
+
+            span.onclick = function() {
+                document.getElementById("carouselExampleIndicators").style.display = "block";
+                modal.style.display = "none";
+            }
+        </script>
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
