@@ -192,7 +192,6 @@
 
                 let labelEl = document.querySelector('.label-file')
                 labelEl.innerHTML = formatedName;
-                console.log(formatedName);
             }
 
             function addImage(){
@@ -200,12 +199,15 @@
                 let formatedName = inputValue.substring(12);
                 document.querySelector('.label-file').innerHTML = "Escolha outro arquivo";
 
-                let filesDiv = document.querySelector('.files');
-                let pElement = document.createElement('p');
-                let pText = document.createTextNode(formatedName);
-                pElement.appendChild(pText);
-                filesDiv.appendChild(pElement);
-                inputValue = "";
+                if(inputValue !== ""){
+                    let filesDiv = document.querySelector('.files');
+                    let pElement = document.createElement('p');
+                    let pText = document.createTextNode(formatedName);
+                    pElement.appendChild(pText);
+                    filesDiv.appendChild(pElement);
+                }
+                
+                document.getElementById('inputGroupFile02').value = "";
             }
         </script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
