@@ -153,8 +153,8 @@
                         
                         <div class="upload-file">
                             <p>Imagens:</p>
-                            <input type="file" class="file-input" id="inputGroupFile02" onchange="showName()">
-                            <label for="inputGroupFile02" class="label-file">Escolha um arquivo</label>
+                            <input type="file" class="file-input" id="input-upload" onchange="showName()">
+                            <label for="input-upload" class="label-file">Escolha um arquivo</label>
 
                             <button type="button" onclick="addImage()" class="add-img btn btn-info">
                                 Adicionar
@@ -195,19 +195,19 @@
             }
 
             function addImage(){
-                let inputValue = document.getElementById('inputGroupFile02').value
+                let inputValue = document.getElementById('input-upload').value
                 let formatedName = inputValue.substring(12);
-                document.querySelector('.label-file').innerHTML = "Escolha outro arquivo";
 
                 if(inputValue !== ""){
+                    document.querySelector('.label-file').innerHTML = "Escolha outro arquivo";
                     let filesDiv = document.querySelector('.files');
                     let pElement = document.createElement('p');
                     let pText = document.createTextNode(formatedName);
                     pElement.appendChild(pText);
                     filesDiv.appendChild(pElement);
                 }
-                
-                document.getElementById('inputGroupFile02').value = "";
+
+                document.getElementById('input-upload').value = "";
             }
         </script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
