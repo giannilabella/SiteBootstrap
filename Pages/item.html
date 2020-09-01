@@ -119,7 +119,7 @@
 
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="padding-left: 15%; padding-right: 15%;">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="../index.html">
                 <img src="../Images/icon.svg" width="30" height="30" class="d-inline-block align-top" alt="">
                 CookBook
             </a>
@@ -214,6 +214,8 @@
             <img class="modal-content" id="img01">
         </div>
 
+        <p id="parag"></p>
+
         <!-- modal style -->
         <style>
             .modal {
@@ -273,6 +275,9 @@
 
         <!-- modal script -->
         <script>
+            let p = document.getElementById('parag');
+            console.log(window.location.search.substring(4));
+
             var modal = document.getElementById("myModal");
             var modalImg = document.getElementById("img01");
 
@@ -290,6 +295,8 @@
                 document.getElementById("carouselExampleIndicators").style.display = "block";
                 modal.style.display = "none";
             }
+            
+
         </script>
 
         <!-- Optional JavaScript -->

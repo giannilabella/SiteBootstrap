@@ -118,6 +118,10 @@
                 margin-right: 10px;
             }
 
+            .invisible{
+                display: none;
+            }
+
             @media only screen and (max-width: 600px) {
                 .itens{
                     display: flex;
@@ -146,7 +150,8 @@
             function render(data){
                 console.log(data);
                 let parent = document.getElementById('parentElement');
-                data.map(({name, category, time, portions, images, ingredients, steps}) => {
+                data.map(({id, name, category, time, portions, images, ingredients, steps}) => {
+                    //Elementos
                     divCardColumn = document.createElement('div');
                     divCard = document.createElement('div');
                     cardImg = document.createElement('img');
@@ -154,9 +159,11 @@
                     cardTitle = document.createElement('h5');
                     cardTextTime = document.createElement('p');
                     cardTextPortions = document.createElement('p');
-                    cardLink = document.createElement('a');
+                    cardLink = document.createElement('button');
                     clockIcon = document.createElement('i');
                     forkIcon = document.createElement('i');
+                    formEl = document.createElement('form');
+                    inputEl = document.createElement('input');
         
                     //Textos
                     titleText = document.createTextNode(name);
@@ -167,7 +174,13 @@
                     //Atributos
                     cardImg.setAttribute('src', images[0]);
                     cardImg.setAttribute('alt', name);
-                    cardLink.setAttribute('href', 'https://google.com');
+                    cardLink.setAttribute('type', 'submit');
+                    formEl.setAttribute('action', 'Pages/item.html');
+                    formEl.setAttribute('method', 'GET');
+                    inputEl.setAttribute('type', 'text');
+                    inputEl.setAttribute('name', 'id');
+                    inputEl.setAttribute('value', id);
+                    inputEl.setAttribute('class', 'invisible');
         
                     //Classes
                     divCardColumn.setAttribute('class', `col-md-4 col-sm-12 ${category} divCard`);
@@ -199,7 +212,9 @@
                     cardBody.appendChild(cardTitle);
                     cardBody.appendChild(cardTextTime);
                     cardBody.appendChild(cardTextPortions);
-                    cardBody.appendChild(cardLink);
+                    formEl.appendChild(inputEl);
+                    formEl.appendChild(cardLink);
+                    cardBody.appendChild(formEl);
                     divCard.appendChild(cardImg);
                     divCard.appendChild(cardBody);
                     divCardColumn.appendChild(divCard);
