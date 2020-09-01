@@ -4,19 +4,19 @@ function selectCategory(card) {
             var element = document.querySelectorAll(".divCard");
             break;
         case 1: 
-            var element = document.querySelectorAll(".acomp");
+            var element = document.querySelectorAll(".Acompanhamentos");
             break;
         case 2: 
-            var element = document.querySelectorAll(".salada");
+            var element = document.querySelectorAll(".Saladas");
             break;
         case 3: 
-            var element = document.querySelectorAll(".lanche");
+            var element = document.querySelectorAll(".Lanches");
             break;
         case 4: 
-            var element = document.querySelectorAll(".princ");
+            var element = document.querySelectorAll(".Principal");
             break;
         case 5: 
-            var element = document.querySelectorAll(".sobre");
+            var element = document.querySelectorAll(".Sobremesas");
             break;
     }
 
