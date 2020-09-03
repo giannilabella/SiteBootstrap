@@ -1,0 +1,120 @@
+a {
+    text-decoration: none;
+    color: #000;
+    transition-duration: 200ms;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #5a5a5a;
+}
+
+.card-img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.container .card
+{
+    margin-bottom: 50px;
+}
+
+.hideCard
+{
+    display: none;
+}
+
+
+footer{
+    background: #e9ecef;
+}
+
+.itens{
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.itens button {
+    width: 180px;
+    margin: 8px;
+}
+
+.accordion{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.accordion .card {
+    margin: 8px 0;
+
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.update {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+
+    width: 45%;
+}
+.update + .update {
+    margin-top: 8px;
+}
+
+.data {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: #5a5a5a solid 1px;
+    height: 40px;
+    width: 40px;
+    margin-right: 16px;
+    border-radius: 10%;
+}
+
+.copyright{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    bottom: 0;
+    height: 40px;
+
+    color: #fff;
+}
+
+i{
+    margin-right: 10px;
+}
+
+.invisible{
+    display: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .itens{
+        display: flex;
+        flex-direction: column;
+    }
+    .accordion .card {
+        width: 90vw;
+    }
+    
+}
+
+@media only screen and (max-width: 950px) {
+    .update {
+        width: 90%;
+    }
+}

@@ -16,214 +16,8 @@
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
             crossorigin="anonymous"
         >
-
-        <style>
-            a {
-                text-decoration: none;
-                color: #000;
-                transition-duration: 200ms;
-            }
-
-            a:hover {
-                text-decoration: underline;
-                color: #5a5a5a;
-            }
-
-            .card-img{
-                width: 100%;
-                height: 200px;
-                object-fit: cover;
-            }
-
-            .container .card
-            {
-                margin-bottom: 50px;
-            }
-
-            .hideCard
-            {
-                display: none;
-            }
-
-            
-            footer{
-                background: #e9ecef;
-            }
-
-            .itens{
-                margin: auto;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            .itens button {
-                width: 180px;
-                margin: 8px;
-            }
-
-            .accordion{
-                margin: auto;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-            }
-
-            .accordion .card {
-                margin: 8px 0;
-
-                width: 50vw;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .update {
-                display: flex;
-                align-items: center;
-                justify-content: start;
-
-                width: 45%;
-            }
-            .update + .update {
-                margin-top: 8px;
-            }
-
-            .data {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-
-                border: #5a5a5a solid 1px;
-                height: 40px;
-                width: 40px;
-                margin-right: 16px;
-                border-radius: 10%;
-            }
-
-            .copyright{
-                flex: 1;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-
-                bottom: 0;
-                height: 40px;
-
-                color: #fff;
-            }
-
-            i{
-                margin-right: 10px;
-            }
-
-            .invisible{
-                display: none;
-            }
-
-            @media only screen and (max-width: 600px) {
-                .itens{
-                    display: flex;
-                    flex-direction: column;
-                }
-                .accordion .card {
-                    width: 90vw;
-                }
-                
-            }
-
-            @media only screen and (max-width: 950px) {
-                .update {
-                    width: 90%;
-                }
-            }
-        </style>
-
-        <script>
-            (() => {
-                fetch(`https://backend-json-server.herokuapp.com/recipes`)
-                    .then(response => response.json())
-                    .then(json => render(json))
-            })();
         
-            function render(data){
-                console.log(data);
-                let parent = document.getElementById('parentElement');
-                data.map(({id, name, category, time, portions, images, ingredients, steps}) => {
-                    //Elementos
-                    divCardColumn = document.createElement('div');
-                    divCard = document.createElement('div');
-                    cardImg = document.createElement('img');
-                    cardBody = document.createElement('div');
-                    cardTitle = document.createElement('h5');
-                    cardTextTime = document.createElement('p');
-                    cardTextPortions = document.createElement('p');
-                    cardLink = document.createElement('button');
-                    clockIcon = document.createElement('i');
-                    forkIcon = document.createElement('i');
-                    formEl = document.createElement('form');
-                    inputEl = document.createElement('input');
-        
-                    //Textos
-                    titleText = document.createTextNode(name);
-                    timeText = document.createTextNode(`Preparo: ${time} minutos`);
-                    portionsText = document.createTextNode(`Rendimento: ${portions} porções`);
-                    linkText = document.createTextNode('Ver receita');
-        
-                    //Atributos
-                    cardImg.setAttribute('src', images[0]);
-                    cardImg.setAttribute('alt', name);
-                    cardLink.setAttribute('type', 'submit');
-                    formEl.setAttribute('action', 'Pages/item.html');
-                    formEl.setAttribute('method', 'GET');
-                    inputEl.setAttribute('type', 'text');
-                    inputEl.setAttribute('name', 'id');
-                    inputEl.setAttribute('value', id);
-                    inputEl.setAttribute('class', 'invisible');
-        
-                    //Classes
-                    divCardColumn.setAttribute('class', `col-md-4 col-sm-12 ${category} divCard`);
-                    
-                    divCard.setAttribute('class', 'card');
-                    
-                    cardImg.setAttribute('class', 'card-img-top img-fluid card-img');
-        
-                    cardBody.setAttribute('class', 'card-body');
-        
-                    cardTitle.setAttribute('class', 'card-title');
-                    
-                    cardTextTime.setAttribute('class', 'card-text preparo');
-        
-                    cardTextPortions.setAttribute('class', 'card-text rendimento');
-                    
-                    cardLink.setAttribute('class', 'btn btn-info');
-        
-                    clockIcon.setAttribute('class', 'fas fa-clock');
-                    forkIcon.setAttribute('class', 'fas fa-utensils');
-        
-                    //Montagem dos Elementos
-                    cardLink.appendChild(linkText);
-                    cardTextPortions.appendChild(forkIcon);
-                    cardTextPortions.appendChild(portionsText);
-                    cardTextTime.appendChild(clockIcon);
-                    cardTextTime.appendChild(timeText);
-                    cardTitle.appendChild(titleText);
-                    cardBody.appendChild(cardTitle);
-                    cardBody.appendChild(cardTextTime);
-                    cardBody.appendChild(cardTextPortions);
-                    formEl.appendChild(inputEl);
-                    formEl.appendChild(cardLink);
-                    cardBody.appendChild(formEl);
-                    divCard.appendChild(cardImg);
-                    divCard.appendChild(cardBody);
-                    divCardColumn.appendChild(divCard);
-                    parent.appendChild(divCardColumn);
-                })
-        
-            }
-        </script>
-        
+        <link rel="stylesheet" type="text/css" href="Styles/index.css" />
     </head>
 
     <body>
@@ -270,7 +64,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#sobrefooter">Sobre nós</a>
+                        <a class="nav-link" href="Pages/aboutUs.html">Sobre nós</a>
                     </li>
                 </ul>
 
@@ -428,7 +222,10 @@
             &copy; Todos os direitos reservados a CookBook
         </div>
 
-        <script src="JavaScript/script.js"></script>
+        <!-- Scripts -->
+        <script src="JavaScript/category-selector.js"></script>
+        <script src="JavaScript/card-renderer.js"></script>
+
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script 

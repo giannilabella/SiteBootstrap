@@ -1,0 +1,64 @@
+.main-content{
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+
+.location{
+    margin-top: 100px;
+}
+
+.map{
+    margin-top: -5px;
+    margin-bottom: 50px;
+    width: 100%;
+    height: 500px;
+    border-radius: 0 0 8px 8px;
+}
+
+.check{
+    display: none;
+}
+
+.check:checked ~ iframe{
+    display: block;
+}
+
+iframe{
+    display: none;
+}
+
+.check:checked + .label-check{
+    border-radius: 8px 8px 0px 0px;            
+}
+
+.check:checked + .label-check::before{
+    content: "Desativar Mapa";            
+}
+
+.label-check::before{
+    content: "Ativar Mapa";
+}
+
+.label-check{
+    width: 100%;
+    height: 50px;
+    background: #dfdfdf;
+    display: grid;
+    place-items: center;
+    border-radius: 8px;
+}
+
+.info h1{
+    font-size: 32px;
+}
+
+.info p{
+    line-height: 8px;
+}
+
+@media only screen and (max-width: 600px) {
+    .info p{
+        line-height: 16px;
+    }
+}
