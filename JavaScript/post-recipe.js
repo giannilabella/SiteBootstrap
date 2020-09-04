@@ -32,7 +32,9 @@ function postRecipe(){
             let alertValue = confirm('Receita Criada com sucesso! \nDeseja voltar a página inicial?');
 
             if(alertValue === true){
-                window.location.href = "../index.html";
+                let include = window.location.hostname == '127.0.0.1' ? "../index.html" : "https://gianni-lab.github.io/SiteBootstrap/";
+                console.log(include)
+                window.location.href = include;
             }
         })
         .catch(err => alert(err))
