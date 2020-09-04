@@ -17,6 +17,7 @@
             crossorigin="anonymous"
         >
         
+        <link rel="stylesheet" type="text/css" href="Styles/light-theme.css" id="theme-css"/>
         <link rel="stylesheet" type="text/css" href="Styles/index.css" />
     </head>
 
@@ -66,6 +67,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="Pages/aboutUs.html">Sobre nós</a>
                     </li>
+
+                    <label class="switch">
+                        <input type="checkbox" id="check" onchange="atualiza()">
+                        <span class="slider round"></span>
+                    </label>
                 </ul>
 
                 <form class="form-inline" >
@@ -142,7 +148,7 @@
             <div class="accordion" id="accordionExample">
                 <div>
                     <div class="collapse" id="about" data-parent="#accordionExample">
-                        <div class="card card-body">
+                        <div class="card card-body dd">
                             <h5>CookBook</h5>
                             <p>Somos um site de compartilhamento de receitas</p>
 
@@ -163,7 +169,7 @@
                 </div>
                 <div>
                     <div class="collapse" id="devs" data-parent="#accordionExample">
-                        <div class="card card-body">
+                        <div class="card card-body dd">
                             <a href="https://github.com/Gianni-Lab/SiteBootstrap">
                                 <i class="fas fa-code"></i>
                                 Open Source
@@ -187,7 +193,7 @@
                 </div>
                 <div>
                     <div class="collapse" id="updates" data-parent="#accordionExample">
-                        <div class="card card-body">
+                        <div class="card card-body dd">
                             <div class="update">
                                 <div class="data">
                                     08 <br> JUN
@@ -223,6 +229,7 @@
         </div>
 
         <!-- Scripts -->
+        <script src="JavaScript/theme.js"></script>
         <script src="JavaScript/category-selector.js"></script>
         <script src="JavaScript/card-renderer.js"></script>
 
