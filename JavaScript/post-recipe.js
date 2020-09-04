@@ -7,16 +7,8 @@ function postRecipe(){
         "https://img.imageboss.me/consul/cdn/animation:true/wp-content/uploads/2013/07/featured-image-6356.jpg",
         "https://i.pinimg.com/736x/e6/e4/5f/e6e45f617265dd150d824bf1299cb850.jpg"
     ];
-    let ingredients = [
-        "1kg de batata",
-        "1kg de alface",
-        "1kg de cenoura"
-    ];
-    let steps = [
-        "Mistura tudo",
-        "Mistura tudo",
-        "Mistura tudo"
-    ]
+    let ingredients = [...ingredie];
+    let steps = [...prepareSteps]
 
     let aux = time.split(':');
     time = (Number(aux[0]) * 60) + Number(aux[1]);

@@ -93,6 +93,26 @@
                 justify-content: center;
                 color: black;
             }
+
+            .added{
+                width: 100%;
+                margin-left: 5px;
+                margin-right: 5px;
+                margin-top: -10px;
+            }
+
+            .added p{
+                margin-bottom: 5px;
+                color: #333;
+                font-size: 12px;
+                width: 100%;
+                height: 25px;
+                display: flex;
+                align-items: center;
+                border: 1px solid #ced4da;
+                border-radius: 4px;
+                padding: 5px;
+            }
         </style>
     </head>
 
@@ -166,14 +186,36 @@
                         </div>
 
 
-                        <div class="form-group col-lg-6 col-md-12">
+                        <div class="form-group col-lg-12 col-md-12">
                             <label for="listaIngredientes">Ingredientes: (1 por linha)</label>
-                            <textarea class="form-control" id="listaIngredientes" rows="5"></textarea>
+                            <div class="input-group">
+                                <input id="ingredient-to-add" type="text" class="form-control" placeholder="Digite aqui os ingredientes" aria-label="Ingredients" aria-describedby="button-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button" onclick="addIngredient()">
+                                        <i class="fas fa-paper-plane"></i>
+                                        Adicionar
+                                    </button>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="form-group col-lg-6 col-md-12">
+                        <div id="added-ingredients" class="added">
+                        </div>
+
+                        <div class="form-group col-lg-12 col-md-12">
                             <label for="listaPassosPreparo">Passos do Preparo: (1 por linha)</label>
-                            <textarea class="form-control" id="listaPassosPreparo" rows="5"></textarea>
+                            <div class="input-group">
+                                <input id="step-to-add" type="text" class="form-control" placeholder="Digite aqui os passos" aria-label="Ingredients" aria-describedby="button-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button" onclick="addStep()">
+                                        <i class="fas fa-paper-plane"></i>
+                                        Adicionar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="added-steps" class="added">
                         </div>
                     </div>
 
@@ -182,39 +224,11 @@
             </div>
             <!-- Form end -->
         </div>
-
+        
+        <script src="../JavaScript/add-items.js"></script>
         <script src="../JavaScript/post-recipe.js"></script>
         <script src="../JavaScript/submit.js"></script>
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <!-- <script>
-            function showName(){
-                let inputValue = document.getElementById('inputGroupFile02').value
-                let formatedName = inputValue.substring(12);
 
-                let labelEl = document.querySelector('.label-file')
-                labelEl.innerHTML = formatedName;
-            }
-
-            function addImage(){
-                let inputValue = document.getElementById('input-upload').value
-                let formatedName = inputValue.substring(12);
-
-                if(inputValue !== ""){
-                    document.querySelector('.label-file').innerHTML = "Escolha outro arquivo";
-                    let filesDiv = document.querySelector('.files');
-                    let pElement = document.createElement('p');
-                    let pText = document.createTextNode(formatedName);
-                    pElement.appendChild(pText);
-                    filesDiv.appendChild(pElement);
-
-                }
-                let imgArr = [];
-                imgArr.push(inputValue);
-
-                document.getElementById('input-upload').value = "";
-            }
-        </script> -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
