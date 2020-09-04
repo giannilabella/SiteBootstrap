@@ -32,7 +32,7 @@ function postRecipe(){
             let alertValue = confirm('Receita Criada com sucesso! \nDeseja voltar a página inicial?');
 
             if(alertValue === true){
-                window.location.href = "../../index.html";
+                window.location.href = "../index.html";
             }
         })
         .catch(err => alert(err))
