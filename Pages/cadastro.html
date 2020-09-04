@@ -142,11 +142,11 @@
                             <label for="categorias">Categoria:</label>
                             <select class="custom-select mr-sm-2" id="categorias">
                                 <option selected>Escolha...</option>
-                                <option value="1">Acompanhamentos</option>
-                                <option value="2">Saladas</option>
-                                <option value="3">Lanches</option>
-                                <option value="4">Prato Principal</option>
-                                <option value="5">Sobremesas</option>
+                                <option value="Acompanhamentos">Acompanhamentos</option>
+                                <option value="Saladas">Saladas</option>
+                                <option value="Lanches">Lanches</option>
+                                <option value="Principal">Prato Principal</option>
+                                <option value="Sobremesas">Sobremesas</option>
                             </select>
                         </div>
 
@@ -177,12 +177,13 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-info">Enviar receita</button>
+                    <button type="submit" class="btn btn-info" onclick="postRecipe()">Enviar receita</button>
                 </form>
             </div>
             <!-- Form end -->
         </div>
 
+        <script src="../JavaScript/post-recipe.js"></script>
         <script src="../JavaScript/submit.js"></script>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
