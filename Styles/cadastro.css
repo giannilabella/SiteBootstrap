@@ -27,6 +27,11 @@ h1
     padding: auto;
 }
 
+.captcha{
+    margin-left: 5px;
+    margin-bottom: 20px;
+}
+
 .files{
     width: 100%;
     height: max-content;
