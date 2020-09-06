@@ -19,6 +19,7 @@
         
         <link rel="stylesheet" type="text/css" href="Styles/light-theme.css" id="theme-css"/>
         <link rel="stylesheet" type="text/css" href="Styles/index.css" />
+        <link rel="stylesheet" type="text/css" href="Styles/switch.css" />
     </head>
 
     <body>
@@ -229,6 +230,20 @@
         </div>
 
         <!-- Scripts -->
+        <script>
+            (() => {
+                let linkTheme = document.getElementById('theme-css');
+                let theme = localStorage.theme || "light";
+
+                linkTheme.setAttribute('href', `Styles/${theme}-theme.css`);
+
+                let chkBox = document.getElementById('check');
+
+                if(theme === "dark"){
+                    chkBox.checked = true;
+                }
+            })();
+        </script>
         <script src="JavaScript/theme.js"></script>
         <script src="JavaScript/category-selector.js"></script>
         <script src="JavaScript/card-renderer.js"></script>

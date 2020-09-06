@@ -11,109 +11,10 @@
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
-        <style>
-            .jumbotron
-            {
-                height: 80%;
-                width: 60%;
 
-                margin: 5% auto;
-            }
-
-            h1
-            {
-                margin-bottom: 5vh;
-            }
-
-            .content
-            {
-                height: 100%;
-                padding: auto;
-            }
-
-            .files{
-                width: 100%;
-                height: max-content;
-                display: flex;
-                flex-wrap: wrap;
-                align-items: center;
-                justify-content: flex-start;
-                margin-top: 15px;
-                margin-left: 5px;
-            }
-
-            .files p{
-                width: max-content;
-                height: max-content;
-                border: 1px solid black;
-                border-radius: 4px;
-                padding: 0 5px 0 5px;
-                margin-right: 10px;
-            }
-
-            .add-img{
-                border: none;
-                border-radius: 8px;
-                z-index: 2;
-                outline: none;
-                position: absolute;
-                bottom: 5px;
-                right: 5px;
-            }
-
-            .upload-file{
-                width: 100%;
-                height: 100px;
-                position: relative;
-                margin-left: 5px;
-                margin-right: 5px;
-                border: 1px solid #ced4da;
-                border-radius: 4px;
-                margin-top: 30px;
-            }
-
-            .upload-file p{
-                margin-top: -30px;
-            }
-
-            .file-input{
-                display: none;
-            }
-
-            .label-file{
-                z-index: 2;
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: black;
-            }
-
-            .added{
-                width: 100%;
-                margin-left: 5px;
-                margin-right: 5px;
-                margin-top: -10px;
-            }
-
-            .added p{
-                margin-bottom: 5px;
-                color: #333;
-                font-size: 12px;
-                width: 100%;
-                height: 25px;
-                display: flex;
-                align-items: center;
-                border: 1px solid #ced4da;
-                border-radius: 4px;
-                padding: 5px;
-            }
-        </style>
+        <link rel="stylesheet" type="text/css" href="../Styles/light-theme.css" id="theme-css"/>
+        <link rel="stylesheet" href="../Styles/cadastro.css">
+        <link rel="stylesheet" type="text/css" href="../Styles/switch.css" />
     </head>
 
     <body>
@@ -132,6 +33,11 @@
                             Home
                         <span class="sr-only">(current)</span></a>
                     </li>
+
+                    <label class="switch">
+                        <input type="checkbox" id="check" onchange="themeUpdate(1)">
+                        <span class="slider round"></span>
+                    </label>
                 </ul>
             </div>
         </nav>
@@ -225,6 +131,21 @@
             <!-- Form end -->
         </div>
         
+        <script>
+            (() => {
+                let linkTheme = document.getElementById('theme-css');
+                let theme = localStorage.theme || "light";
+    
+                linkTheme.setAttribute('href', `../Styles/${theme}-theme.css`);
+    
+                let chkBox = document.getElementById('check');
+    
+                if(theme === "dark"){
+                    chkBox.checked = true;
+                }
+            })();
+        </script>
+        <script src="../JavaScript/theme.js"></script>
         <script src="../JavaScript/add-items.js"></script>
         <script src="../JavaScript/post-recipe.js"></script>
         <script src="../JavaScript/submit.js"></script>

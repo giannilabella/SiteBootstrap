@@ -10,167 +10,9 @@
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-        <style>
-            .img{
-                margin-right: auto;
-                margin-left: auto;
-                width: 70%;
-                height: 300px;
-                margin-top: 100px;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-            }
-
-            .img h1{
-                padding-right: 120px;
-                padding-left: 120px;
-                font-size: 50px;
-                color: #dfdfdf;
-                position: absolute;
-            }
-
-            .slide-img
-            {
-                width: 100%;
-                height: 300px;
-            }
-
-            .slide-img img
-            {
-                width: 70vw;
-                height: 300px;
-                object-fit: cover;
-                filter: blur(2px);
-                border-radius: 30px;
-                cursor: pointer;
-            }
-
-            .preparo{
-                display: grid;
-                width: 70%;
-                margin-left: auto;
-                margin-right: auto;
-                grid-template-columns: 50% 50%;
-            }
-
-            .preparo .ingre ul{
-                list-style: none;
-            }
-
-            .preparo .ingre ul li{
-                font-size: 30px;
-                margin-top: 20px;
-                border: 1px solid #000;
-                border-radius: 10px;
-                width: 90%;
-                padding: 15px;
-            }
-
-            .ingre p{
-                margin-top: 20px;
-                display: flex;
-                justify-content: center;
-            }
-
-            .ingre p span{
-                font-size: 35px;
-                font-weight: bold;
-            }
-
-            .icon{
-                width: 50px;
-                height: auto;
-            }
-
-
-            .preparo .modo ul li{
-                font-size: 20px;
-                margin-top: 20px;
-                border-bottom: 1px solid #000;
-                width: 90%;
-                padding: 5px;
-            }
-
-            .modo p{
-                margin-top: 20px;
-                display: flex;
-                justify-content: center;
-            }
-
-            .modo p span{
-                font-size: 35px;
-                font-weight: bold;
-            }
-
-            @media only screen and (max-width: 1000px){
-                .img{
-                    margin-top: 50px;
-                }
-
-                .preparo{
-                    display: flex;
-                    flex-direction: column;
-                }
-            }
-
-            /* Modal Style */
-
-            .modal {
-                display: none;
-                position: fixed;
-                z-index: 1;
-                padding-top: 100px;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                overflow: auto;
-                background-color: rgb(0,0,0);
-                background-color: rgba(0,0,0,0.9);
-            }
-            
-            .modal-content {
-                margin: auto;
-                display: block;
-                width: 80%;
-                max-width: 700px;
-            }
-
-            .modal-content, #caption {
-                animation-name: zoom;
-                animation-duration: 0.6s;
-            }
-
-            @keyframes zoom {
-                from {transform:scale(0)}
-                to {transform:scale(1)}
-            }
-
-            .close {
-                position: absolute;
-                top: 15px;
-                right: 35px;
-                color: #f1f1f1;
-                font-size: 40px;
-                font-weight: bold;
-                transition: 0.3s;
-            }
-
-            .close:hover,
-            .close:focus {
-                color: #bbb;
-                text-decoration: none;
-                cursor: pointer;
-            }
-
-            @media only screen and (max-width: 700px){
-                .modal-content {
-                    width: 100%;
-                }
-            }
-        </style>
+        <link rel="stylesheet" type="text/css" href="../Styles/light-theme.css" id="theme-css"/>
+        <link rel="stylesheet" href="../Styles/item.css">
+        <link rel="stylesheet" type="text/css" href="../Styles/switch.css" />
     </head>
 
     <body>
@@ -192,6 +34,11 @@
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
+
+                    <label class="switch">
+                        <input type="checkbox" id="check" onchange="themeUpdate(1)">
+                        <span class="slider round"></span>
+                    </label>
                 </ul>
             </div>
         </nav>
@@ -222,15 +69,7 @@
         <div class="preparo">
             <div class="ingre">
                 <p>
-                    <svg width="70" height="80" viewBox="0 0 70 80" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="icon">
-                        <rect width="69.8452" height="80" fill="url(#pattern0)"/>
-                        <defs>
-                        <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
-                        <use xlink:href="#image0" transform="translate(-0.072695) scale(0.00763593 0.00666667)"/>
-                        </pattern>
-                        <image id="image0" width="150" height="150" xlink:href="data:image/png;base64,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"/>
-                        </defs>
-                    </svg>
+                    <i class="fas fa-carrot fa-2x icon"></i>
                     <span>Ingredientes:</span>
                 </p>
                 <ul id="prepareIngredients">
@@ -240,7 +79,7 @@
 
             <div class="modo">
                 <p>
-                    <img src="../Images/cooking.png" class="icon">
+                    <i class="fas fa-fire fa-2x icon"></i>
                     <span>Preparo:</span>
                 </p>
                 <ul id="prepareSteps">
@@ -259,87 +98,22 @@
         </main>
 
         <script>
-            id = window.location.search.substring(4);
-            
             (() => {
-                    fetch(`https://backend-json-server.herokuapp.com/recipes/${id}`)
-                    .then(response => response.json())
-                    .then(json => render(json))
-                    .catch(err => {
-                        document.getElementById('main').style.display = "none";  
-                    })
-            })();
+                let linkTheme = document.getElementById('theme-css');
+                let theme = localStorage.theme || "light";
 
-            function render({category, id, images, name, time, ingredients, steps, portions}){
-                document.getElementById('recipeName').innerHTML = name;
-                var passos = document.getElementById('prepareSteps');
-                var ingredientes = document.getElementById('prepareIngredients');
-                var carousel = document.getElementById('divCarousel');
-                let amount = document.getElementById('ordenatedList');
-                
-                steps.map((step) => {
-                    listElement = document.createElement('li');
-                    listText = document.createTextNode(step);
-                    listElement.appendChild(listText);
-                    passos.appendChild(listElement);
-                })
+                linkTheme.setAttribute('href', `../Styles/${theme}-theme.css`);
 
-                ingredients.map((ingr) => {
-                    listElement = document.createElement('li');
-                    listText = document.createTextNode(ingr);
-                    listElement.appendChild(listText);
-                    ingredientes.appendChild(listElement);
-                })
+                let chkBox = document.getElementById('check');
 
-                images.map((img, index) => {
-                    divCar = document.createElement('div');
-                    imgCar = document.createElement('img');
-                    
-                    if(index === 0){
-                        divCar.setAttribute('class', 'carousel-item active slide-img');
-                    }else{
-                        divCar.setAttribute('class', 'carousel-item slide-img');
-                    }
-                    
-                    imgCar.setAttribute('src', img);
-                    imgCar.setAttribute('alt', 'Slide');
-                    imgCar.setAttribute('onClick', 'focusImg(this)');
-
-                    divCar.appendChild(imgCar);
-                    carousel.appendChild(divCar);
-                })
-
-                for(let i = 0; i < images.length; i++){
-                    itemList = document.createElement('li');
-                    itemList.setAttribute("data-target", "#carouselExampleIndicators");
-                    itemList.setAttribute("data-slide-to", i);
-                    if(i === 0){
-                        itemList.setAttribute("class", "active");
-                    }
-
-                    amount.appendChild(itemList);
+                if(theme === "dark"){
+                    chkBox.checked = true;
                 }
-            }
-
-            //Modal Script
-            var modal = document.getElementById("myModal");
-            var modalImg = document.getElementById("img01");
-            
-            function focusImg(imgElement){
-                document.getElementById("carouselExampleIndicators").style.display = "none";
-                modal.style.display = "block";
-                modalImg.src = imgElement.src;
-            }
-
-            var span = document.getElementsByClassName("close")[0];
-
-            span.onclick = function() {
-                document.getElementById("carouselExampleIndicators").style.display = "block";
-                modal.style.display = "none";
-            }
-            
-
+            })();
         </script>
+        <script src="../JavaScript/modal.js"></script>
+        <script src="../JavaScript/render-item.js"></script>
+        <script src="../JavaScript/theme.js"></script>
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->

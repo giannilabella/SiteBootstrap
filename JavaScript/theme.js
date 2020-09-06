@@ -1,17 +1,4 @@
-(() => {
-    let linkTheme = document.getElementById('theme-css');
-    let theme = localStorage.theme || "light";
-
-    linkTheme.setAttribute('href', `Styles/${theme}-theme.css`);
-
-    let chkBox = document.getElementById('check');
-
-    if(theme === "dark"){
-        chkBox.checked = true;
-    }
-})();
-
-function themeUpdate(){
+function themeUpdate(pasta = 0){
     theme = localStorage.theme || "light";
     
     if(theme === "light"){
@@ -23,5 +10,7 @@ function themeUpdate(){
     let linkTheme = document.getElementById('theme-css');
     theme = localStorage.theme;
 
-    linkTheme.setAttribute('href', `Styles/${theme}-theme.css`)
+    pasta = pasta === 0 ? './': '../';
+
+    linkTheme.setAttribute('href', `${pasta}Styles/${theme}-theme.css`)
 }
