@@ -35,9 +35,12 @@
             })
 
             function upload(){
+                    let minutes = Number(document.getElementById('tempo').value.split(':')[1]);
+                    let hours = Number(document.getElementById('tempo').value.split(':')[0]);
+
                     let fullRecipe = {
                         name: document.getElementById('name').value,
-                        time: document.getElementById('tempo').value,
+                        time: ((hours*60) + minutes),
                         portions: document.getElementById('porcoes').value,
                         category: document.getElementById('categorias').value,
                         ingredients: ingredie,
@@ -49,5 +52,15 @@
                         method: 'post',
                         body: JSON.stringify(fullRecipe),
                         headers: {'Content-type': 'application/json'}
-                    }).catch(err => console.log(err))
+                    })
+                    .then(data => {
+                        if(data.status === 201){
+                            let alertValue = confirm('Receita Criada com sucesso! \nDeseja voltar a página inicial?');
+                            if(alertValue === true){
+                                let redirect = window.location.hostname == 'localhost' ? "../index.html" : "https://gianni-lab.github.io/SiteBootstrap/";
+                                window.location.href = redirect;
+                            }
+                        }
+                    })
+                    .catch(err => console.log(err))
             }
