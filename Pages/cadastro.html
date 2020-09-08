@@ -51,7 +51,7 @@
                     <div class="form-row">
                         <div class="form-group col-lg-12">
                             <label for="nomeReceita">Nome da Receita:</label>
-                            <input type="text" class="form-control form-control-lg" id="nomeReceita">
+                            <input type="text" class="form-control form-control-lg" id="name">
                         </div>
 
                         <div class="form-group col-lg-4 col-md-12">
@@ -79,12 +79,11 @@
                         
                         <div class="upload-file">
                             <p>Imagens:</p>
-                            <input type="file" class="file-input" id="input-upload" onchange="showName()">
-                            <label for="input-upload" class="label-file">Escolha um arquivo</label>
-
-                            <button type="button" onclick="addImage()" class="add-img btn btn-info">
-                                Adicionar
-                            </button>
+                            <label for="file" class="label-file">Clique aqui para anexar imagens</label>
+                            <input type="file" class="file-input" id="file">
+                            <div id="imgToggle">
+                                <!--imagens uploadadas-->
+                            </div>
                         </div>
 
                         <div class="files">
@@ -127,7 +126,7 @@
                         <div class="g-recaptcha captcha" data-sitekey="6Lc1pcgZAAAAADdYp8qYy9RJ4tI-wuEsSLV6lhud"></div>
                     </div>
 
-                    <button type="submit" class="btn btn-info" onclick="postRecipe()">Enviar receita</button>
+                    <button type="button" class="btn btn-info" onclick="upload()">Criar receita</button>
                 </form>
             </div>
             <!-- Form end -->
@@ -145,12 +144,12 @@
                 if(theme === "dark"){
                     chkBox.checked = true;
                 }
-            })();
+            })();            
         </script>
+
+        <script src="../JavaScript/create-recipe.js"></script>
         <script src="../JavaScript/theme.js"></script>
         <script src="../JavaScript/add-items.js"></script>
-        <script src="../JavaScript/post-recipe.js"></script>
-        <script src="../JavaScript/submit.js"></script>
 
         <script src='https://www.google.com/recaptcha/api.js'></script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
