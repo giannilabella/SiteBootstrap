@@ -1,38 +1,69 @@
-            let ingredie = [];
-            let prepareSteps = [];
+let ingredie = [];
+let prepareSteps = [];
 
-            function addIngredient(){
-                let ingr = document.getElementById('ingredient-to-add').value;
+function copyText(link){
+    link.setSelectionRange(0, 99999);
+    document.execCommand("copy");
+}
 
-                if(ingr !== ''){
-                    let ingrDiv = document.getElementById('added-ingredients');
+function addImageNames(img) {
+    const input = document.getElementById('input-upload');
+    const names = [];
 
-                    let pElement = document.createElement('p');
-                    let pText = document.createTextNode(ingr);
+    Object
+        .keys(input.files)
+        .map((key, index) => {
+            names.push(input.files[key].name);
+        });
 
-                    pElement.appendChild(pText);
-                    ingrDiv.appendChild(pElement);
+    const namesDiv = document.getElementById('added-images');
+    namesDiv.innerHTML = '';
 
-                    ingredie.push(ingr);
-                }
+    names.map((name) => {
+        const pElement = document.createElement('p');
+        const pText = document.createTextNode(name);
+        const iconEl = document.createElement('i')
+        iconEl.setAttribute('class', 'far fa-copy');
+        iconEl.setAttribute('onclick', `copyText("${img}")`);
+        
+        pElement.appendChild(iconEl);
+        pElement.appendChild(pText);
+        namesDiv.appendChild(pElement);
+    });
+};
 
-                document.getElementById('ingredient-to-add').value = "";
-            }
+function addIngredient(){
+    let ingr = document.getElementById('ingredient-to-add').value;
 
-            function addStep(){
-                let step = document.getElementById('step-to-add').value;
+    if(ingr !== ''){
+        let ingrDiv = document.getElementById('added-ingredients');
 
-                if(step !== ''){
-                    let stepDiv = document.getElementById('added-steps');
+        let pElement = document.createElement('p');
+        let pText = document.createTextNode(ingr);
 
-                    let pElement = document.createElement('p');
-                    let pText = document.createTextNode(step);
+        pElement.appendChild(pText);
+        ingrDiv.appendChild(pElement);
 
-                    pElement.appendChild(pText);
-                    stepDiv.appendChild(pElement);
+        ingredie.push(ingr);
+    }
 
-                    prepareSteps.push(step);
-                }
+    document.getElementById('ingredient-to-add').value = "";
+}
 
-                document.getElementById('step-to-add').value = "";
-            }
+function addStep(){
+    let step = document.getElementById('step-to-add').value;
+
+    if(step !== ''){
+        let stepDiv = document.getElementById('added-steps');
+
+        let pElement = document.createElement('p');
+        let pText = document.createTextNode(step);
+
+        pElement.appendChild(pText);
+        stepDiv.appendChild(pElement);
+
+        prepareSteps.push(step);
+    }
+
+    document.getElementById('step-to-add').value = "";
+}

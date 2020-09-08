@@ -3,12 +3,12 @@ function postRecipe(){
     let time = document.getElementById('tempo').value; 
     let portions = document.getElementById('porcoes').value;
     let category = document.getElementById('categorias').value;
-    let images = [
-        "https://img.imageboss.me/consul/cdn/animation:true/wp-content/uploads/2013/07/featured-image-6356.jpg",
-        "https://i.pinimg.com/736x/e6/e4/5f/e6e45f617265dd150d824bf1299cb850.jpg"
-    ];
-    let ingredients = [...ingredie];
-    let steps = [...prepareSteps]
+    let images = imagesArray;
+    let ingredients = ingredie;
+    let steps = prepareSteps;
+
+    console.log(imagesArray);
+    console.log(steps);
 
     let aux = time.split(':');
     time = (Number(aux[0]) * 60) + Number(aux[1]);
@@ -23,6 +23,9 @@ function postRecipe(){
         steps
     }
 
+    console.log(fullRecipe);
+    console.log(JSON.stringify(fullRecipe));
+
     fetch('https://backend-json-server.herokuapp.com/recipes', {
         method: 'post',
         body: JSON.stringify(fullRecipe),
@@ -32,8 +35,8 @@ function postRecipe(){
             let alertValue = confirm('Receita Criada com sucesso! \nDeseja voltar a página inicial?');
 
             if(alertValue === true){
+                console.log("klwdnakldkl")
                 let include = window.location.hostname == '127.0.0.1' ? "../index.html" : "https://gianni-lab.github.io/SiteBootstrap/";
-                console.log(include)
                 window.location.href = include;
             }
         })

@@ -5,7 +5,6 @@
 })();
 
 function render(data){
-    console.log(data);
     let parent = document.getElementById('parentElement');
     data.map(({id, name, category, time, portions, images, ingredients, steps}) => {
         //Elementos
@@ -77,6 +76,5 @@ function render(data){
         divCardColumn.appendChild(divCard);
         parent.appendChild(divCardColumn);
     })
-
 }
         
