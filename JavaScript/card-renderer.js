@@ -29,6 +29,9 @@ function render(data){
         linkText = document.createTextNode('Ver receita');
 
         //Atributos
+        if(images.length === 0){
+            images = ["https://www.generationsforpeace.org/wp-content/uploads/2018/03/empty.jpg"];
+        }
         cardImg.setAttribute('src', images[0]);
         cardImg.setAttribute('alt', name);
         cardLink.setAttribute('type', 'submit');
