@@ -144,6 +144,17 @@ i{
     border: 0.3px solid var(--color-extra);
 }
 
+.load{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+.load h1{
+    color: var(--color-text);
+    margin-bottom: 20px;
+}
 
 @media only screen and (max-width: 600px) {
     .itens{

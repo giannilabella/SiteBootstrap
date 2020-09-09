@@ -2,11 +2,21 @@
     fetch(`https://backend-json-server.herokuapp.com/recipes`)
         .then(response => response.json())
         .then(json => render(json))
+        .catch(err => alert(err))
+
+    let pgBar = document.getElementById('pgBar');
+    for(let i = 0; i <= 100; i++) {
+        setTimeout(() => {
+            pgBar.style.width = `${i}%`;
+        }, 50)
+    }
 })();
+
 
 function render(data){
     console.log(data);
     let parent = document.getElementById('parentElement');
+    parent.innerHTML = "";
     data.map(({id, name, category, time, portions, images, ingredients, steps}) => {
         //Elementos
         divCardColumn = document.createElement('div');
@@ -80,6 +90,5 @@ function render(data){
         divCardColumn.appendChild(divCard);
         parent.appendChild(divCardColumn);
     })
-
 }
         
