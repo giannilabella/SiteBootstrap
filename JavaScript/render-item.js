@@ -11,6 +11,10 @@ id = window.location.search.substring(4);
 
             function render({category, id, images, name, time, ingredients, steps, portions}){
                 document.getElementById('recipeName').innerHTML = name;
+                document.getElementById('recipeInfoName').innerHTML = name;
+                document.getElementById('recipeCategory').innerHTML = category;
+                document.getElementById('time').innerHTML = `Tempo de Preparo: ${time} minutos`;
+                document.getElementById('portions').innerHTML = `Rendimento: ${portions} porções`;
                 var passos = document.getElementById('prepareSteps');
                 var ingredientes = document.getElementById('prepareIngredients');
                 var carousel = document.getElementById('divCarousel');
