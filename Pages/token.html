@@ -17,6 +17,46 @@
             background: var(--color-bg);
             color: var(--color-text);
         }
+
+        .content{
+            width: 70%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .parabens{
+            margin-top: 50px;
+            display: flex;
+            align-items: center;
+        }
+
+        .parabens img{
+            width: 100px;
+        }
+
+        h3{
+            font: 400 1rem sans-serif;
+            margin-top: 25px;
+        }
+
+        .back{
+            width: 200px;
+            height: 60px;
+            display: grid;
+            place-items: center;
+            background: var(--color-text);
+            color: var(--color-bg);
+            font: 600 0.8rem sans-serif;
+            border-radius: 16px;
+            text-decoration: none;
+            transition: all .4s;
+        }
+
+        .back:hover{
+            text-decoration: none;
+            opacity: 0.8;
+            color: var(--color-bg);
+        }
     </style>
 </head>
 <body>
@@ -43,7 +83,20 @@
         </div>
     </nav>
 
+    <div class="content">
+        <div class="parabens">
+            <img src="../Images/congratulations.png" alt="Parabéns">
+            <h1>Parabéns!</h1>
+        </div>
+        <h3>Receita criada com sucesso!</h3>
+        <h3>Aqui está seu TOKEN:</h3>
+        <h1 id="token"></h1>
+        <h3>Com ele você pode editar os dados da sua receita!</h3>
+        <a class="back" href="../index.html">Voltar à página inicial</a>
+    </div>
+
     <script>
+        let token = window.location.search.substring(7);
         (() => {
             let linkTheme = document.getElementById('theme-css');
             let theme = localStorage.theme || "light";
@@ -55,7 +108,11 @@
             if(theme === "dark"){
                 chkBox.checked = true;
             }
-        })();            
+        })();
+        
+        (() => {
+            document.getElementById('token').innerText = token;
+        })()
     </script>
 
     <script src="../JavaScript/theme.js"></script>
