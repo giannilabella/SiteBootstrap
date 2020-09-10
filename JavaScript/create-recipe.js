@@ -69,7 +69,8 @@ function upload(){
                 if(data.status === 201){
                     let alertValue = confirm('Receita Criada com sucesso! \nDeseja voltar a página inicial?');
                     if(alertValue === true){
-                        let redirect = window.location.hostname == 'localhost' ? `./token.html?token=${semiToken}` : "https://gianni-lab.github.io/SiteBootstrap/";
+                        let redirect = window.location.hostname == 'localhost' ? `./token.html?token=${semiToken}` : `https://gianni-lab.github.io/SiteBootstrap/Pages/token.html?token=${semiToken}`;
+                        //https://gianni-lab.github.io/SiteBootstrap/Pages/item.html?id=3
                         window.location.href = redirect;
                     }
                 }
