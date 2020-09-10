@@ -37,34 +37,40 @@ function upload(){
     if(validaForm() === 0){
         return 0;
     }else{
-        let minutes = Number(document.getElementById('tempo').value.split(':')[1]);
-        let hours = Number(document.getElementById('tempo').value.split(':')[0]);
-    
-        let fullRecipe = {
-            name: document.getElementById('name').value,
-            time: ((hours*60) + minutes),
-            portions: document.getElementById('porcoes').value,
-            category: document.getElementById('categorias').value,
-            ingredients: ingredie,
-            steps: prepareSteps,
-            images: arr
+        var response = grecaptcha.getResponse();
+        if(response.length == 0) {
+            alert('Por favor confirme o captcha!')
         }
-    
-        fetch('https://backend-json-server.herokuapp.com/recipes', {
-            method: 'post',
-            body: JSON.stringify(fullRecipe),
-            headers: {'Content-type': 'application/json'}
-        })
-        .then(data => {
-            if(data.status === 201){
-                let alertValue = confirm('Receita Criada com sucesso! \nDeseja voltar a página inicial?');
-                if(alertValue === true){
-                    let redirect = window.location.hostname == 'localhost' ? "../index.html" : "https://gianni-lab.github.io/SiteBootstrap/";
-                    window.location.href = redirect;
-                }
+        else{
+            let minutes = Number(document.getElementById('tempo').value.split(':')[1]);
+            let hours = Number(document.getElementById('tempo').value.split(':')[0]);
+        
+            let fullRecipe = {
+                name: document.getElementById('name').value,
+                time: ((hours*60) + minutes),
+                portions: document.getElementById('porcoes').value,
+                category: document.getElementById('categorias').value,
+                ingredients: ingredie,
+                steps: prepareSteps,
+                images: arr
             }
-        })
-        .catch(err => console.log(err))
+        
+            fetch('https://backend-json-server.herokuapp.com/recipes', {
+                method: 'post',
+                body: JSON.stringify(fullRecipe),
+                headers: {'Content-type': 'application/json'}
+            })
+            .then(data => {
+                if(data.status === 201){
+                    let alertValue = confirm('Receita Criada com sucesso! \nDeseja voltar a página inicial?');
+                    if(alertValue === true){
+                        let redirect = window.location.hostname == 'localhost' ? "../index.html" : "https://gianni-lab.github.io/SiteBootstrap/";
+                        window.location.href = redirect;
+                    }
+                }
+            })
+            .catch(err => console.log(err))
+        }
     }
 }
 
