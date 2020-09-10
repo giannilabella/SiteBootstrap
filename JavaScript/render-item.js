@@ -15,6 +15,36 @@ id = window.location.search.substring(4);
                 document.getElementById('recipeCategory').innerHTML = category;
                 document.getElementById('time').innerHTML = `Tempo de Preparo: ${time} minutos`;
                 document.getElementById('portions').innerHTML = `Rendimento: ${portions} porções`;
+
+                let color;
+                switch (category) {
+                    case 'Acompanhamentos':
+                        color = 'blueviolet';
+                        break;
+                
+                    case 'Saladas':
+                        color = 'red';
+                        break;
+                    
+                    case 'Sobremesas':
+                        color = 'orange';
+                        break;
+
+                    case 'Lanches':
+                        color = 'blue';
+                        break;
+
+                    case 'Principal':
+                        color = 'green';
+                        break;
+
+                    default:
+                        color = '#555';
+                        break;
+                }
+
+                document.getElementById('recipeCategory').style.background = color;
+
                 var passos = document.getElementById('prepareSteps');
                 var ingredientes = document.getElementById('prepareIngredients');
                 var carousel = document.getElementById('divCarousel');
