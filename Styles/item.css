@@ -39,63 +39,87 @@ body{
     cursor: pointer;
 }
 
-.preparo{
-    display: grid;
+.info{
     width: 70%;
     margin-left: auto;
     margin-right: auto;
-    grid-template-columns: 50% 50%;
 }
 
-.preparo .ingre ul{
+.cook{
+    display: flex;
+    position: relative;
+}
+
+.rb{
+    display: none;
+}
+
+.rb:checked ~ .label-tg{
+    background: blueviolet;
+}
+
+.rb:checked ~ .content{
+    display: block;
+}
+
+.label-tg{
+    width: 200px;
+    height: 60px;
+    background: #555;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    margin-right: 20px;
+    border-radius: 16px;
+    cursor: pointer;
+}
+
+.content{
+    width: 100%;
+    height: max-content;
+    padding: 20px 60px 30px 20px;
+    background: #F2EECD;
+    border-radius: 16px;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 70px;
+    margin-bottom: 50px;
+}
+
+.content ul li{
+    height: 40px;
+    padding-left: 25px;
+    color: black;
+    border-bottom: 1px solid black;
     list-style: none;
+    padding-top: 20px;
+    font: 600 18px 'Dancing Script';
 }
 
-.preparo .ingre ul li{
-    font-size: 30px;
-    margin-top: 20px;
-    border: 1px solid var(--color-text);
-    border-radius: 10px;
-    width: 90%;
-    padding: 15px;
-}
-
-.ingre p{
-    margin-top: 20px;
+.title{
+    margin-top: 25px;
     display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-.ingre p span{
-    font-size: 35px;
-    font-weight: bold;
-    margin-left: 10px;
+.title h1{
+    font-size: 32px;
+    margin-right: 10px;
 }
 
-.icon{
-    color: var(--color-text);
-}
-
-.preparo .modo ul li{
-    font-size: 20px;
-    margin-top: 20px;
-    border-bottom: 1px solid var(--color-text);
-    width: 90%;
+.title span{
+    font-size: 12px;
+    width: max-content;
+    height: max-content;
     padding: 5px;
+    background: blueviolet;
+    border-radius: 8px;
 }
 
-.modo p{
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.modo p span{
-    font-size: 35px;
-    font-weight: bold;
-    margin-left: 10px;
+.info p{
+    line-height: 5px;
 }
 
 @media only screen and (max-width: 1000px){

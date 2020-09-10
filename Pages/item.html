@@ -6,6 +6,7 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="shortcut icon" href="../Images/favicon.png" type="image/x-icon">
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/01dde3cf5b.js" crossorigin="anonymous"></script>
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -66,28 +67,40 @@
             <h1 id="recipeName"><!-- Nome da Receita--></h1>
         </div>
 
-        <div class="preparo">
-            <div class="ingre">
-                <p>
-                    <i class="fas fa-carrot fa-2x icon"></i>
-                    <span>Ingredientes:</span>
-                </p>
-                <ul id="prepareIngredients">
-                    <!-- Passos do preparo -->
-                </ul>
+        <section class="info">
+            <div class="title">
+                <h1>Batata Assada com Alecrim</h1>
+                <span>Acompanhamento</span>
             </div>
-
-            <div class="modo">
-                <p>
-                    <i class="fas fa-fire fa-2x icon"></i>
-                    <span>Preparo:</span>
-                </p>
-                <ul id="prepareSteps">
-                    <!-- Passos do preparo -->
-                </ul>
-            </div>
-        </div>
-
+            <p>Tempo de preparo: 45 minutos</p>
+            <p>Rendimento: 4 porções</p>
+            <main class="cook">
+                <div class="ingredientes">
+                    <input type="radio" name="tabs" class="rb" id="tab_1" checked>
+                    <label for="tab_1" class="label-tg">
+                        <span>Ingredientes</span>
+                        <i class="fas fa-carrot fa-2x icon"></i>
+                    </label>
+                    <div class="content">
+                        <ul id="prepareIngredients">
+                            <!-- Passos do preparo -->
+                        </ul>
+                    </div>
+                </div>
+                <div class="preparo">
+                    <input type="radio" name="tabs" class="rb" id="tab_2">
+                    <label for="tab_2" class="label-tg">
+                        <span>Preparo</span>
+                        <i class="fas fa-fire fa-2x icon"></i>
+                    </label>
+                    <div class="content">
+                        <ul id="prepareSteps">
+                            <!-- Passos do preparo -->
+                        </ul>
+                    </div>
+                </div>
+            </main>
+        </section>
 
         <div id="myModal" class="modal">
             <span class="close">&times;</span>
