@@ -1,3 +1,5 @@
+const HASH_ENCRYPTER = 'ca4c50b905dc21ea17a10549a6f5944f';
+
 const file = document.getElementById('file') 
 const img = document.getElementById('img')
 const imgToggle = document.getElementById('imgToggle')
@@ -44,6 +46,8 @@ function upload(){
         else{
             let minutes = Number(document.getElementById('tempo').value.split(':')[1]);
             let hours = Number(document.getElementById('tempo').value.split(':')[0]);
+            let semiToken = geraToken();
+            let token = md5(semiToken, HASH_ENCRYPTER);
         
             let fullRecipe = {
                 name: document.getElementById('name').value,
@@ -52,7 +56,8 @@ function upload(){
                 category: document.getElementById('categorias').value,
                 ingredients: ingredie,
                 steps: prepareSteps,
-                images: arr
+                images: arr,
+                token
             }
         
             fetch('https://backend-json-server.herokuapp.com/recipes', {
@@ -64,7 +69,7 @@ function upload(){
                 if(data.status === 201){
                     let alertValue = confirm('Receita Criada com sucesso! \nDeseja voltar a página inicial?');
                     if(alertValue === true){
-                        let redirect = window.location.hostname == 'localhost' ? "../index.html" : "https://gianni-lab.github.io/SiteBootstrap/";
+                        let redirect = window.location.hostname == 'localhost' ? `./token.html?token=${semiToken}` : "https://gianni-lab.github.io/SiteBootstrap/";
                         window.location.href = redirect;
                     }
                 }
@@ -118,4 +123,16 @@ function validaForm(){
     }
 
     return 1;
+}
+
+function geraToken(){
+    let token = "";
+    let vb = "";
+    for(let i = 0; i < 10; i++){
+        vb = Math.floor(Math.random() * 10);
+        if((i === 3) || (i === 7)) token += '-';
+        token += vb;
+    }
+
+    return token;
 }
