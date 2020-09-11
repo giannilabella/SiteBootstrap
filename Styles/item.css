@@ -209,8 +209,54 @@ body{
     top: 100px;
     left: 30%;
     width: 40%;
-    height: 400px;
+    height: max-content;
     background: #222;
     border-radius: 16px;
     padding: 25px;
+}
+
+.inputBox{
+    display: flex;
+    flex-direction: column;
+}
+
+.inputBox label{
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+
+.inputBox input{
+    border-radius: 8px;
+    background: var(--color-black);
+    height: 40px;
+    padding: 5px;
+    outline: none;
+    border: none;
+    color: #fff;
+}
+
+.inputBox input:focus{
+    border-bottom: 2px solid #fff;
+}
+
+.buttonsDiv{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.buttonsDiv button{
+    margin-left: 20px;
+    border: none;
+    border-radius: 8px;
+    background: #0fa30f;
+    font: 700 14px sans-serif;
+    color: #fff;
+    padding: 5px 15px 5px 15px;
+    outline: none;
+}
+
+.buttonsDiv button:first-child{
+    background: #a30e0e;
 }

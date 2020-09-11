@@ -73,7 +73,7 @@
                     <h1 id="recipeInfoName"></h1>
                     <span id="recipeCategory"></span>
                 </div>
-                <i class="fas fa-cog fa-3x" onclick="toggleEdit()"></i>
+                <i class="fas fa-cog fa-3x" onclick="toggleEdit()" style="cursor: pointer;"></i>
             </div>
             <p id="time"></p>
             <p id="portions"></p>
@@ -114,15 +114,37 @@
         <div id="edit" class="edit">
             <section class="edit-popup">
                 <h2>Editar receita:</h2>
+                
+                <div class="inputBox">
+                    <label for="userToken">Token:</label>
+                    <input type="text" id="userToken">
+                </div>
+
+                <div class="inputBox">
+                    <label for="updateName">Nome da Receita:</label>
+                    <input type="text" id="updateName">
+                </div>
+
+                <div class="inputBox">
+                    <label for="updateTime">Tempo de Preparo:</label>
+                    <input type="time" id="updateTime">
+                </div>
+
+                <div class="inputBox">
+                    <label for="updatePortions">Qtde de Porções:</label>
+                    <input type="number" id="updatePortions" min="1">
+                </div>
+
                 <div class="buttonsDiv">
                     <button type="button" onclick="toggleEdit()">Cancelar</button>
-                    <button type="button">Confirmar</button>
+                    <button type="button" id="editBtn">Confirmar</button>
                 </div>
             </section>
         </div>
 
-        </main>
-
+    </main>
+    
+    <script src="../JavaScript/render-item.js"></script>
         <script>
             (() => {
                 let linkTheme = document.getElementById('theme-css');
@@ -150,13 +172,47 @@
                     document.getElementById("carouselExampleIndicators").style.display = "block";
                 }
             }
+
+
+            const HASH_ENCRYPTER = 'ca4c50b905dc21ea17a10549a6f5944f';
+
+            function checkToken(tokenBD, id){
+                let userToken = document.getElementById('userToken').value;
+                let encryptedUserToken = md5(userToken, HASH_ENCRYPTER);
+                if(encryptedUserToken === tokenBD){
+                    recipeUpdate(id);
+                }else{
+                    alert('Token Errado!')
+                }
+            }
+
+            function recipeUpdate(id){
+                let updateName = document.getElementById('updateName').value;
+                let minutes = Number(document.getElementById('updateTime').value.split(':')[1]);
+                let hours = Number(document.getElementById('updateTime').value.split(':')[0]);
+                let updateTime = ((hours*60) + minutes);
+                let updatePortions = document.getElementById('updatePortions').value;
+
+                let updatedData = {
+                    name: updateName,
+                    time: updateTime,
+                    portions: updatePortions,
+                }
+
+                fetch(`https://backend-json-server.herokuapp.com/recipes/${id}`, {
+                    method: 'PUT',
+                    headers: {'Content-type': 'application/json; charset=UTF-8'},
+                    body: JSON.stringify(updatedData)
+                }).then(res => res.json()).then(data => {
+                        console.log(data)
+
+                    })
+            }
         </script>
         <script src="../JavaScript/modal.js"></script>
-        <script src="../JavaScript/render-item.js"></script>
         <script src="../JavaScript/theme.js"></script>
 
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.12.0/js/md5.min.js" integrity="sha512-JA8tz4E5FAEQQlJ1mWOQYRSNVvyMQyOAoZqzSGJgrPXA52MFH7EawE6Srmg6bu5f8wArlU5gIeAyL+pn7Ukvjw==" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

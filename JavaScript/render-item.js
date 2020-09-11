@@ -9,12 +9,15 @@ id = window.location.search.substring(4);
                     })
             })();
 
-            function render({category, id, images, name, time, ingredients, steps, portions}){
+            function render({category, id, images, name, time, ingredients, steps, portions, token}){
                 document.getElementById('recipeName').innerHTML = name;
                 document.getElementById('recipeInfoName').innerHTML = name;
                 document.getElementById('recipeCategory').innerHTML = category;
                 document.getElementById('time').innerHTML = `Tempo de Preparo: ${time} minutos`;
                 document.getElementById('portions').innerHTML = `Rendimento: ${portions} porções`;
+                let tokenBtn = document.getElementById('editBtn');
+                tokenBtn.setAttribute('onclick', `checkToken('${token}', ${id})`);
+
 
                 let color;
                 switch (category) {
