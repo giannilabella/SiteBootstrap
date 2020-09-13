@@ -7,6 +7,22 @@ const imgToggle = document.getElementById('imgToggle')
 let arr = [];
 
 file.addEventListener('change', ev=> {
+        let imagemDiv = document.createElement('div');
+
+        imagemDiv.setAttribute('class', 'imgBox')
+
+        imagemDiv.innerHTML = `
+            <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+
+            <p class="ml-2">Loading...</p>
+        `;
+
+        window.document.body.style.cursor = 'progress'
+        
+        imgToggle.appendChild(imagemDiv);
+
         const formData = new FormData();
         formData.append('image', ev.target.files[0])
         fetch("https://api.imgur.com/3/image", {
@@ -16,22 +32,21 @@ file.addEventListener('change', ev=> {
             },
             body: formData
         }).then(data => data.json()).then(data => {
-            let imagemDiv = document.createElement('div');
+            imagemDiv.innerHTML = '';
+
             let imagemEl = document.createElement('img');
-            let imagemText = document.createElement('p');
-
-            
+            imagemEl.setAttribute('class', 'image');
             imagemEl.src = data.data.link;
-            imagemText.innerText = file.value.substring(12);
-
-            imagemDiv.setAttribute('class', 'imgBox');
-            imagemEl.setAttribute('class', 'image')
-
+            
+            
+            let imagemText = document.createElement('p');
+            imagemText.innerText = ev.target.value.substring(12);
+            
             imagemDiv.appendChild(imagemEl);
             imagemDiv.appendChild(imagemText);
-            imgToggle.appendChild(imagemDiv);
-
             arr.push(data.data.link);
+
+            window.document.body.style.cursor = 'default';
         })
 })
 

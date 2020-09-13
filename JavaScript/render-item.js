@@ -47,7 +47,6 @@ id = window.location.search.substring(4);
                 }
 
                 document.getElementById('recipeCategory').style.background = color;
-                document.getElementById('page-title').innerText = `${name} | CookBook`
 
                 var passos = document.getElementById('prepareSteps');
                 var ingredientes = document.getElementById('prepareIngredients');
@@ -96,4 +95,7 @@ id = window.location.search.substring(4);
 
                     amount.appendChild(itemList);
                 }
+
+                //Troca title da pagina
+                window.document.title = `${name} | CookBook`;
             }
