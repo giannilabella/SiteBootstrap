@@ -1,6 +1,22 @@
 (() => {
-    fetch(`https://backend-json-server.herokuapp.com/recipes`)
-        .then(response => response.json())
+    page = window.location.search.substring(6);
+    console.log(page)
+
+    page = page === "" ? 1 : page;
+    console.log(page)
+
+    fetch(`https://backend-json-server.herokuapp.com/recipes?_page=${page}&_limit=2`)
+        .then(response => {
+            var links = response.headers.get('Link');
+            var pages = links.split(',').map((link) => {
+                var formatedLink = link.split(';')[0].replace('<', '').replace('>', '').replace(' ', '').substring(55, link.length-24)
+                return formatedLink;
+            }) 
+
+            pagination(pages);
+            
+            return response.json();
+        })
         .then(json => render(json))
         .catch(err => alert(err))
 
@@ -13,8 +29,21 @@
 })();
 
 
+function pagination(pages){
+    let firstBtn = document.getElementById('first');
+    let prevBtn = document.getElementById('prev');
+    let currentBtn = document.getElementById('current');
+    let nextBtn = document.getElementById('next');
+    let lastBtn = document.getElementById('last');
+
+    firstBtn.href = `./index.html?page=${pages[0]}`
+    prevBtn.href = `./index.html?page=${pages[1]}`
+    currentBtn.href = `./index.html?page=${Number(pages[2]) - Number(pages[1])}`
+    nextBtn.href = `./index.html?page=${pages[2]}`
+    lastBtn.href = `./index.html?page=${pages[3]}`
+}
+    
 function render(data){
-    console.log(data);
     let parent = document.getElementById('parentElement');
     parent.innerHTML = "";
     data.map(({id, name, category, time, portions, images, ingredients, steps}) => {
