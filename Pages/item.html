@@ -186,27 +186,36 @@
                 }
             }
 
-            function recipeUpdate(id){
+            async function recipeUpdate(id){
                 let updateName = document.getElementById('updateName').value;
                 let minutes = Number(document.getElementById('updateTime').value.split(':')[1]);
                 let hours = Number(document.getElementById('updateTime').value.split(':')[0]);
                 let updateTime = ((hours*60) + minutes);
                 let updatePortions = document.getElementById('updatePortions').value;
 
-                let updatedData = {
-                    name: updateName,
-                    time: updateTime,
-                    portions: updatePortions,
-                }
+                
+                var data = {};
+                
+                await fetch(`https://backend-json-server.herokuapp.com/recipes/${id}`)
+                        .then(response => response.json())
+                        .then(json => data = json)
+                        .catch(err => alert(err))
+            
+                data.name = updateName;
+                data.time = updateTime;
+                data.portions = updatePortions;
 
-                fetch(`https://backend-json-server.herokuapp.com/recipes/${id}`, {
+                if(confirm('Você tem certeza que desejar alterar essa receita?') === true){
+                    fetch(`https://backend-json-server.herokuapp.com/recipes/${id}`, {
                     method: 'PUT',
                     headers: {'Content-type': 'application/json; charset=UTF-8'},
-                    body: JSON.stringify(updatedData)
-                }).then(res => res.json()).then(data => {
-                        console.log(data)
-
+                    body: JSON.stringify(data)
+                })
+                    .then(res => res.json()).then(data => {
+                        document.location.reload(true);
                     })
+                    .catch(err => alert(err))
+                }
             }
         </script>
         <script src="../JavaScript/modal.js"></script>
