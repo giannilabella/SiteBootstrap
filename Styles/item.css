@@ -55,7 +55,7 @@ body{
 }
 
 .rb:checked ~ .label-tg{
-    background: #444;
+    opacity: 1;
 }
 
 .rb:checked ~ .content{
@@ -68,11 +68,12 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #999;
+    opacity: 0.4;
     padding: 20px;
     margin-right: 20px;
     border-radius: 16px;
     cursor: pointer;
+    font-weight: 700;
 }
 
 .content{

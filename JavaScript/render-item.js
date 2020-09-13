@@ -47,6 +47,8 @@ id = window.location.search.substring(4);
                 }
 
                 document.getElementById('recipeCategory').style.background = color;
+                document.getElementsByClassName('label-tg')[0].style.background = color;
+                document.getElementsByClassName('label-tg')[1].style.background = color;
 
                 var passos = document.getElementById('prepareSteps');
                 var ingredientes = document.getElementById('prepareIngredients');
