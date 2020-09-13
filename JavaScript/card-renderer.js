@@ -1,19 +1,30 @@
+var page = window.location.search.substring(6);
+page = page === "" ? 1 : Number(page);
+const LIMIT = 3;
+
 (() => {
-    page = window.location.search.substring(6);
-    console.log(page)
 
-    page = page === "" ? 1 : page;
-    console.log(page)
+    fetch(`https://backend-json-server.herokuapp.com/recipes?_page=${page}&_limit=${LIMIT}`)
+        .then(response => {         
+            let recipesTotal = response.headers.get('X-Total-Count');
+            let lastPage = Math.ceil(recipesTotal / LIMIT);
 
-    fetch(`https://backend-json-server.herokuapp.com/recipes?_page=${page}&_limit=2`)
-        .then(response => {
-            var links = response.headers.get('Link');
-            var pages = links.split(',').map((link) => {
-                var formatedLink = link.split(';')[0].replace('<', '').replace('>', '').replace(' ', '').substring(55, link.length-24)
-                return formatedLink;
-            }) 
+            let prevBtn = document.getElementById('prev');
+            let nextBtn = document.getElementById('next');
+            
+            if(page > lastPage || page < 1){
+                let pagesDiv = document.getElementById('pagination');
+                pagesDiv.innerHTML = "<h1>Página não encontrada</h1>";
+            }else{
+                if(page !== 1){
+                    prevBtn.href = `./index.html?page=${page - 1}`;
+                }
+    
+                if(page !== lastPage){
+                    nextBtn.href = `./index.html?page=${page + 1}`;
+                }
+            }
 
-            pagination(pages);
             
             return response.json();
         })
@@ -27,21 +38,6 @@
         }, 50)
     }
 })();
-
-
-function pagination(pages){
-    let firstBtn = document.getElementById('first');
-    let prevBtn = document.getElementById('prev');
-    let currentBtn = document.getElementById('current');
-    let nextBtn = document.getElementById('next');
-    let lastBtn = document.getElementById('last');
-
-    firstBtn.href = `./index.html?page=${pages[0]}`
-    prevBtn.href = `./index.html?page=${pages[1]}`
-    currentBtn.href = `./index.html?page=${Number(pages[2]) - Number(pages[1])}`
-    nextBtn.href = `./index.html?page=${pages[2]}`
-    lastBtn.href = `./index.html?page=${pages[3]}`
-}
     
 function render(data){
     let parent = document.getElementById('parentElement');
