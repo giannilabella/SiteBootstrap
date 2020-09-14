@@ -1,5 +1,6 @@
 body{
     background: var(--color-black);
+    color: var(--color-text);
 }
 
 .navbar-nav{
@@ -106,7 +107,7 @@ footer{
     color: white;
 }
 
-i{
+.icon{
     margin-right: 10px;
 }
 
@@ -178,3 +179,50 @@ i{
 }
 
 /* The switch - the box around the slider */
+
+
+#pagination{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 40px;
+    margin: 0 15px 20px 15px;
+}
+
+.pageBtn{
+    width: max-content;
+    height: max-content;
+    background: transparent;
+    border-radius: 8px;
+    padding: 10px;
+    border: 1px solid white;
+    color: white;
+    font: 700 1rem sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.pageBtn:hover{
+    text-decoration: none;
+    background: #fff;
+    color: #000;
+}
+
+.disabled{
+    background: #555;
+    cursor: not-allowed;
+}
+
+.disabled:hover{
+    background: #555;
+}
+
+.fa-angle-right{
+    margin-left: 15px;
+}
+
+.fa-angle-left{
+    margin-right: 15px;
+}

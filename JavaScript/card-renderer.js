@@ -1,35 +1,45 @@
+let parent = document.getElementById('parentElement');
 var page = window.location.search.substring(6);
+let pagesDiv = document.getElementById('pagination');
+
 page = page === "" ? 1 : Number(page);
 const LIMIT = 3;
 
 (() => {
 
-    fetch(`https://backend-json-server.herokuapp.com/recipes?_page=${page}&_limit=${LIMIT}`)
-        .then(response => {         
-            let recipesTotal = response.headers.get('X-Total-Count');
-            let lastPage = Math.ceil(recipesTotal / LIMIT);
+    if(page < 1){
+        parent.innerHTML = "";
+        pagesDiv.innerHTML = "<h1>Página não encontrada</h1>";
+    }else{
+        fetch(`https://backend-json-server.herokuapp.com/recipes?_page=${page}&_limit=${LIMIT}`)
+            .then(response => {         
+                let recipesTotal = response.headers.get('X-Total-Count');
+                let lastPage = Math.ceil(recipesTotal / LIMIT);
 
-            let prevBtn = document.getElementById('prev');
-            let nextBtn = document.getElementById('next');
+                let prevBtn = document.getElementById('prev');
+                let nextBtn = document.getElementById('next');    
             
-            if(page > lastPage || page < 1){
-                let pagesDiv = document.getElementById('pagination');
-                pagesDiv.innerHTML = "<h1>Página não encontrada</h1>";
-            }else{
+                if(page > lastPage){
+                    parent.innerHTML = "";
+                    pagesDiv.innerHTML = "<h1>Página não encontrada</h1>";
+                }
                 if(page !== 1){
                     prevBtn.href = `./index.html?page=${page - 1}`;
+                }else{
+                    prevBtn.classList.add('disabled');
                 }
     
                 if(page !== lastPage){
                     nextBtn.href = `./index.html?page=${page + 1}`;
+                }else{
+                    nextBtn.classList.add('disabled');
                 }
-            }
-
-            
-            return response.json();
-        })
-        .then(json => render(json))
-        .catch(err => alert(err))
+                
+                return response.json();
+            })
+            .then(json => render(json))
+            .catch(err => alert(err))
+    }
 
     let pgBar = document.getElementById('pgBar');
     for(let i = 0; i <= 100; i++) {
@@ -40,7 +50,6 @@ const LIMIT = 3;
 })();
     
 function render(data){
-    let parent = document.getElementById('parentElement');
     parent.innerHTML = "";
     data.map(({id, name, category, time, portions, images, ingredients, steps}) => {
         //Elementos
@@ -94,8 +103,8 @@ function render(data){
         
         cardLink.setAttribute('class', 'btn btn-info');
 
-        clockIcon.setAttribute('class', 'fas fa-clock');
-        forkIcon.setAttribute('class', 'fas fa-utensils');
+        clockIcon.setAttribute('class', 'fas fa-clock icon');
+        forkIcon.setAttribute('class', 'fas fa-utensils icon');
 
         //Montagem dos Elementos
         cardLink.appendChild(linkText);
