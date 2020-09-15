@@ -195,8 +195,8 @@ footer{
     background: transparent;
     border-radius: 8px;
     padding: 10px;
-    border: 1px solid white;
-    color: white;
+    border: 1px solid var(--color-text);
+    color: var(--color-text);
     font: 700 1rem sans-serif;
     display: flex;
     align-items: center;
@@ -206,8 +206,8 @@ footer{
 
 .pageBtn:hover{
     text-decoration: none;
-    background: #fff;
-    color: #000;
+    background: var(--color-text);
+    color: var(--color-bg);
 }
 
 .disabled{
@@ -225,4 +225,17 @@ footer{
 
 .fa-angle-left{
     margin-right: 15px;
+}
+
+.fab{
+    color: var(--color-text);
+}
+
+.social a{
+    text-decoration: none;
+}
+
+.dd a{
+    color: var(--color-text);
+    text-decoration: none;
 }

@@ -13,6 +13,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 
 .img h1{
@@ -79,12 +80,12 @@ body{
 .content{
     width: 100%;
     height: max-content;
-    padding: 20px 60px 30px 20px;
     background: #F2EECD;
     border-radius: 16px;
     display: none;
     position: absolute;
     top: 0;
+    padding: 20px 60px 20px 20px;
     left: 0;
     margin-top: 70px;
     margin-bottom: 50px;
@@ -92,7 +93,7 @@ body{
 
 .content ul li{
     height: 40px;
-    padding-left: 25px;
+    padding-left: 0px;
     color: black;
     border-bottom: 1px solid black;
     list-style: none;
@@ -160,6 +161,7 @@ body{
     display: block;
     width: 80%;
     max-width: 700px;
+    margin-bottom: 50px;
 }
 
 .modal-content, #caption {
@@ -189,17 +191,11 @@ body{
     cursor: pointer;
 }
 
-@media only screen and (max-width: 700px){
-    .modal-content {
-        width: 100%;
-    }
-}
-
 .edit{
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
     height: 100%;
     background: rgba(0,0,0,0.7);
     display: none;
@@ -211,7 +207,8 @@ body{
     left: 30%;
     width: 40%;
     height: max-content;
-    background: #222;
+    background: var(--color-bg);
+    color: var(--color-text);
     border-radius: 16px;
     padding: 25px;
 }
@@ -229,15 +226,12 @@ body{
 .inputBox input{
     border-radius: 8px;
     background: var(--color-black);
+    border: 1px solid var(--color-text);
     height: 40px;
     padding: 5px;
     outline: none;
-    border: none;
     color: #fff;
-}
-
-.inputBox input:focus{
-    border-bottom: 2px solid #fff;
+    width: 100%;
 }
 
 .buttonsDiv{
@@ -260,4 +254,51 @@ body{
 
 .buttonsDiv button:first-child{
     background: #a30e0e;
+}
+
+.static{
+    color: #fff;
+}
+
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+    
+    .cook{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .label-tg{
+        width: 100%;
+    }
+
+    .content{
+        margin-top: 135px;
+    }
+
+    .title{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+
+    .title h1{
+        font-size: 24px;
+    }
+
+    .edit-popup{
+        position: fixed;
+        width: 80vw;
+        left: 10vw;
+        margin-top: 40px;
+        top: 0;
+    }
+
+    .img h1{
+        font-size: 24px;
+        padding: 0;
+        max-width: 60vw;
+    }
 }

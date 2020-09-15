@@ -14,6 +14,7 @@ body{
 .form-control, .custom-select, .label-file{
     background: var(--color-black);
     color: var(--color-text);
+    border: 1px solid var(--color);
 }
 
 h1
@@ -76,7 +77,7 @@ h1
     height: max-content;
     background: var(--color-black);
     color: var(--color-text);
-    border: 1px solid var(--color-text);
+    border: 1px solid var(--color-extra);
     border-radius: 4px;
     display: grid;
     place-items: center;
@@ -97,7 +98,7 @@ h1
     align-items: center;
     height: 50px;
     width: 100%;
-    border: 1px solid var(--color-text);
+    border: 1px solid var(--color-extra);
     border-radius: 4px;
     padding-left: 10px;
     margin-bottom: 10px;
