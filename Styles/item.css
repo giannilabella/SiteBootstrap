@@ -85,18 +85,17 @@ body{
     display: none;
     position: absolute;
     top: 0;
-    padding: 20px 60px 20px 20px;
+    padding: 25px;
     left: 0;
     margin-top: 70px;
     margin-bottom: 50px;
 }
 
-.content ul li{
-    height: 40px;
+.listItem{
+    height: 32px;
     padding-left: 0px;
     color: black;
     border-bottom: 1px solid black;
-    list-style: none;
     padding-top: 20px;
     font: 600 18px 'Dancing Script';
 }
@@ -300,5 +299,10 @@ body{
         font-size: 24px;
         padding: 0;
         max-width: 60vw;
+    }
+
+    p.big {
+        line-height: 20px;
+        height: 60px;
     }
 }

@@ -162,10 +162,20 @@ footer{
         display: flex;
         flex-direction: column;
     }
+
+    .navbar-nav{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
     .accordion .card {
         width: 90vw;
     }
     
+    .form-inline{
+        margin-top: 10px;
+    }
 }
 
 @media only screen and (max-width: 950px) {

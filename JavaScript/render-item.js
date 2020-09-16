@@ -56,14 +56,20 @@ id = window.location.search.substring(4);
                 let amount = document.getElementById('ordenatedList');
                 
                 steps.map((step) => {
-                    listElement = document.createElement('li');
+                    listElement = document.createElement('p');
+                    if(step.length > 25){
+                        listElement.setAttribute('class', 'listItem big')
+                    }else{
+                        listElement.setAttribute('class', 'listItem')
+                    }
                     listText = document.createTextNode(step);
                     listElement.appendChild(listText);
                     passos.appendChild(listElement);
                 })
 
                 ingredients.map((ingr) => {
-                    listElement = document.createElement('li');
+                    listElement = document.createElement('p');
+                    listElement.setAttribute('class', 'listItem')
                     listText = document.createTextNode(ingr);
                     listElement.appendChild(listText);
                     ingredientes.appendChild(listElement);
