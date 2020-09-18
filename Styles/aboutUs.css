@@ -1,6 +1,13 @@
 body{
     background: var(--color-bg);
-    color: var(--color-text);
+    color: var(--color-text2);
+
+    font-family: 'Roboto', sans-serif;
+}
+
+a,
+a:hover{
+    text-decoration: none;
 }
 
 .main-content{
@@ -8,6 +15,245 @@ body{
     margin-right: auto;
     width: 70%;
 }
+
+/* intruduction start */
+.introduction-info{
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 50px;
+    color: var(--color-text);
+}
+
+.introduction-info .title{
+    font-family: 'Lobster', cursive;
+    font-size: 3.5rem;
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.introduction-info .text{
+    margin-right: 25px;
+    margin-bottom: 0;
+}
+
+.introduction-info img{
+    height: 80px;
+}
+
+.introduction-info .subtitle{
+    font-size: 1.25rem;
+}
+/* introduction end */
+
+/* contacts start */
+.contact-info{
+    margin-top: 80px;
+}
+
+.contact-info .title{
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--color-text);
+}
+
+.contact-info .content{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+
+    width: 100%;
+}
+
+.contact-info .button-div{
+    display: flex;
+    flex-direction: column;
+
+    width: 30%;
+    max-width: 250px;
+
+    margin-right: 50px;
+}
+
+.contact-info .button .label-tg{
+    padding: 10px;
+    padding-left: 20px;
+    background-color: var(--color-extra2);
+    border-radius: 10px;
+    cursor: pointer;
+
+    color: var(--color-bg);
+
+    display: flex;
+    flex-direction: row;
+}
+
+.contact-info .button + .button{
+    margin-top: 20px;
+}
+
+.contact-info .button .label-tg .text{
+    font-size: 1.5rem;
+
+    margin-left: 10%;
+}
+
+.contact-info .info-tab{
+    background-color: #c4c4c4;
+    color: #111;
+
+    border-radius: 25px;
+    width: 100%;
+    padding: 30px;
+}
+
+#messageinput{
+    border-radius: 10px;
+    width: 100%;
+    height: 150px;
+    margin-bottom: 10px;
+}
+
+.fa-paper-plane:before{
+    margin-top: 50px;
+    background: #1BAA3A;
+    width: 100%;
+    height: max-content;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+/* contacts end */
+
+/* devs start */
+.devs-info{
+    margin-top: 50px;
+}
+
+.devs-info .title{
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--color-text);
+}
+
+.devs-info .content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.devs-info .dev{
+    background-color: #333;
+    border-radius: 40px;
+    padding: 40px;
+    width: 60%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: hidden;
+
+    transition: all 0.8s;
+}
+
+.devs-info .dev img{
+    height: 200px;
+
+    border-radius: 50%;
+    margin-right: 30px;
+}
+
+.devs-info .dev .text{
+    font-size: 1.8rem;
+}
+
+.devs-info .dev .git, .git a{
+    font-size: 1.3rem;
+    color: #aaa;
+}
+
+.devs-info .dev .linkedin, .linkedin a{
+    font-size: 1.3rem;
+    color: #aaa;
+}
+
+.devs-info .dev .desc{
+    font-size: 1.3rem;
+}
+
+.devs-info .unfocused{
+    transform: scale(0.8);
+    width: 40% !important;
+
+    cursor: pointer;
+}
+
+.devs-info .unfocused img{
+    height: 100px;
+}
+
+.devs-info .unfocused .git,
+.devs-info .unfocused .linkedin,
+.devs-info .unfocused .desc{
+    display: none;
+}
+/* devs end */
+
+/* updates start */
+.updates-info{
+    margin-top: 80px;
+    color: var(--color-text);
+}
+
+.updates-info .title{
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.updates-info .content{
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+}
+
+.updates-info .update{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+.updates-info .date{
+    background-color: #414D4E;
+    border-radius: 8px;
+    width: 60px;
+    height: 60px;
+    margin-right: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    overflow: hidden;
+
+    transition: width 0.4s;
+    color: var(--color-text2);
+}
+
+.updates-info .date:hover{
+    width: 200px;
+}
+
+.updates-info .author{
+    color: #aaa;
+}
+/* updates end */
+
+
 
 .location{
     margin-top: 100px;
@@ -27,10 +273,6 @@ body{
 
 .check:checked ~ iframe{
     display: block;
-}
-
-iframe{
-    display: none;
 }
 
 .check:checked + .label-check{
@@ -64,8 +306,182 @@ iframe{
     line-height: 8px;
 }
 
+.rb{
+    display: none;
+}
+
+.xubilau{
+    display: none;
+    position: absolute;
+    left: 30%;
+    top: 0;
+    width: 70%;
+    height: 100%;
+    background: #333;
+    border-radius: 20px;
+}
+
+.padd{
+    padding: 25px;
+}
+
+
+.mapa{
+    border-radius: 20px;
+    height: 100%;
+}
+
+.rb:checked ~ .contact{
+    display: block;
+}
+
+.form-email{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-email label{
+    display: flex;
+    flex-direction: column;
+}
+
+.email-btn{
+    border-radius: 4px;
+    background: rgb(38, 126, 20);
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+
+.lkin{
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.lkin .head-linkedin img{
+    width: 60px;
+    height: auto;
+}
+
+.lkin .head-linkedin h1{
+    font-size: 40px;
+    margin-left: 20px;
+}
+
+.lkin a{
+    margin-top: 50px;
+    width: max-content;
+    height: 40px;
+    border: 2px solid #2a76bd;
+    padding: 5px 10px 15px 10px;
+    color: #2a76bd;
+    text-decoration: none;
+}
+
+.head-linkedin{
+    display: flex;
+    align-items: center;
+}
+
 @media only screen and (max-width: 600px) {
-    .info p{
-        line-height: 16px;
+    /* introduction start */
+    .introduction-info .text{
+        font-size: 2.7rem;
+        margin-right: 5px;
+    }
+    
+    .introduction-info img{
+        height: 50px;
+    }
+    /* introduction end */
+
+    /* contact start */
+    .contact-info .content{
+        flex-direction: column;
+    }
+    
+    .contact-info .button-div{
+        width: 100%;
+    }
+
+    .contact-info .button + .button{
+        margin-top: 10px;
+    }
+    /* contact end */
+
+    /* devs start */
+    .devs-info .content{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative; 
+    }
+    
+    .devs-info .dev{
+        width: 100%;
+        flex-direction: column;
+    }
+    
+    .devs-info .dev img{
+        height: 150px;
+        margin-right: 0px;
+    }
+
+    .devs-info .unfocused{
+        width: 100% !important;
+    }
+    /* devs end */
+
+    /* updates start */
+    .updates-info .update{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .updates-info .date,
+    .updates-info .date:hover{
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .xubilau{
+        left: 0px;
+        top: 350px;
+        background: red;
+        width: 100%;
+        height: 300px;
+        background: #333;
+        border-radius: 20px;
+        margin-left: 0px;
+        margin-top: -40px;
+    }
+
+    .lkin{
+        padding: 10px;
+        align-items: center;
+    }
+
+
+    .lkin a{
+        font-size: 12px;
+    }
+
+    .devs-info{
+        margin-top: 350px;
+    }
+
+    .lkin .head-linkedin{
+        font-size: 32px;
+        margin-left: 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .lkin .head-linkedin h1{
+        margin-left: 0px;
     }
 }

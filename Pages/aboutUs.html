@@ -5,8 +5,8 @@
     <link rel="shortcut icon" href="../Images/favicon.png" type="image/x-icon">
 
     <meta charset="UTF-8">
-    <script src="https://kit.fontawesome.com/01dde3cf5b.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto&display=swap" rel="stylesheet">
 
     <link 
         rel="stylesheet"
@@ -19,9 +19,12 @@
     <link rel="stylesheet" href="../Styles/aboutUs.css">
     <link rel="stylesheet" type="text/css" href="../Styles/switch.css" />
 
+    <script src="https://kit.fontawesome.com/01dde3cf5b.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
 </head>
 
 <body>
+    <!-- Navbar start -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="padding-left: 15%; padding-right: 15%;">
         <a class="navbar-brand" href="../index.html">
             <img src="../Images/icon.svg" width="30" height="30" class="d-inline-block align-top" alt="">
@@ -54,24 +57,140 @@
             </ul>
         </div>
     </nav>
+    <!-- Navbar end -->
 
     <main class="main-content">
-        <div class="location">
-            <div class="info">
-                <h1>
-                    Localização:
-                </h1>
-                <p>Rua Paschoal Marmo, 1888, Jardim Nova Itália</p>
-                <p>Limeira - São Paulo</p>
-                <p>CEP: 13484-434</p>
-            </div>
-            
-            <input type="checkbox" class="check" id="checkbox">
-                <label class="label-check" for="checkbox"></label>
-            </input>
-
-            <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d41680.899870255766!2d-47.40573066100425!3d-22.575143408321402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe2108428886c8646!2sCotil%20(Unicamp)!5e0!3m2!1spt-BR!2sbr!4v1599168868934!5m2!1spt-BR!2sbr" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        <div class="introduction-info">
+            <div class="title"> <div class="text">CookBook</div>  <img src="../Images/favicon.png" alt="chef-hat-icon"></div>
+            <div class="subtitle">Desde 2020 levando muito mais que receitas.</div>
         </div>
+
+        <div class="contact-info">
+            <div class="title">Como entrar em contato conosco:</div>
+            <div class="content">
+                <div class="button-div">
+                    <div class="button"> 
+                        <input type="radio" name="tabs" class="rb" id="tab_zap" checked>
+                        <label for="tab_zap" class="label-tg">
+                            <i class="fab fa-whatsapp fa-2x" style="color: #1BAA3A;"></i>
+                            <div class="text">Whatsapp</div>
+                        </label>
+                        <div class="contact xubilau padd">
+                            <div class="pessoal">
+                                Mensagem:
+                                <textarea name="message" id="messageinput" cols="30" rows="10" onchange="updatelink()" style="resize: none;"></textarea>
+                                <a class="zap-btn" href="https://wa.me/5519987654321?text=" id="sendmessage" target="_blank">
+                                    <i class="fas fa-paper-plane fa-2x"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="button"> 
+                        <input type="radio" name="tabs" class="rb" id="tab_email">
+                        <label for="tab_email" class="label-tg">
+                            <i class="far fa-envelope fa-2x" style="color: #D21313;"></i> 
+                            <div class="text">Email</div>
+                        </label>
+                        <div class="contact xubilau">
+                            <form
+                                action="https://formspree.io/contatocookbook@gmail.com"
+                                method="POST"
+                                class="form-email"
+                                >
+                                <label>
+                                    Nome:
+                                    <input type="text" name="name" class="form-control">
+                                </label>
+                                <label>
+                                    Email:
+                                    <input type="email" name="_replyto" class="form-control">
+                                </label>
+                                <label>
+                                    Mensagem:
+                                    <textarea name="message" class="form-control"></textarea>
+                                </label>
+                                <input type="submit" value="Enviar" class="email-btn">
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="button">
+                        <input type="radio" name="tabs" class="rb" id="tab_map">
+                        <label for="tab_map" class="label-tg">
+                            <i class="fas fa-map-signs fa-2x" style="color: #631FB9;"></i>
+                            <div class="text">Físicamente</div>
+                        </label>
+                        <div class="contact xubilau">
+                            <iframe class="mapa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58945.77810209101!2d-47.427759114745875!3d-22.574946519222127!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe2108428886c8646!2sCotil%20(Unicamp)!5e0!3m2!1spt-BR!2sbr!4v1600384871938!5m2!1spt-BR!2sbr" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                        </div>
+                    </div>
+                    
+                    <div class="button"> 
+                        <input type="radio" name="tabs" class="rb" id="tab_in">
+                        <label for="tab_in" class="label-tg">
+                            <i class="fab fa-linkedin fa-2x" style="color: #40ACDA;"></i> 
+                            <div class="text">Linkedin</div>
+                        </label>
+                        <div class="contact xubilau">
+                            <div class="lkin">
+                                <div class="head-linkedin">
+                                    <img src="../Images/favicon.png">
+                                    <h1>CookBook</h1>
+                                </div>
+                                <a target="_blank" href="https://www.linkedin.com/in/cook-book-7464161b7/">Visite nosso perfil no LinkedIn</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="devs-info">
+            <div class="title">Desenvolvedores:</div>
+            <div class="content">
+                <div class="dev" id="dev1" onclick="togglefocus(this)">
+                    <img src="https://avatars0.githubusercontent.com/u/60967470?s=460&u=c443da8b16dc294d8b74d3e8592194eed753045b&v=4" alt="">
+
+                    <div class="info">
+                        <div class="text">Eduardo Correia</div>
+                        <div class="git">
+                            <i class="fab fa-github-square"></i>
+                            <a href="https://github.com/eduardo-ehsc" target="_blank">@eduardo-ehsc</a>
+                        </div>
+                        <div class="linkedin">
+                            <i class="fab fa-linkedin"></i>
+                            <a href="https://www.linkedin.com/in/eduardo-ehsc/" target="_blank">@eduardo-ehsc</a>
+                        </div>
+                        <div class="desc">Aluno de Informática no COTIL. <br> Apaixonado em resolver problemas.</div>
+                    </div>
+                </div>
+                <div class="dev unfocused" id="dev2" onclick="togglefocus(this)">
+                    <img src="https://avatars3.githubusercontent.com/u/59416872?s=460&u=b117a18e005d64ce54040f06278a3666ecdedcc0&v=4" alt="">
+
+                    <div class="info">
+                        <div class="text">Gianni Labella</div>
+                        <div class="git">
+                            <i class="fab fa-github-square"></i>
+                            <a href="https://github.com/gianni-lab" target="_blank">@Gianni-Lab</a>
+                        </div>
+                        <div class="linkedin">
+                            <i class="fab fa-linkedin"></i>
+                            <a href="https://www.linkedin.com/in/giannilabella/" target="_blank">@giannilabella</a>
+                        </div>
+                        <div class="desc">Estudante do ensino médio e curso técnico em informatica no COTIL.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="updates-info">
+            <div class="title">Últimas atualizações:</div>
+            <div class="content">
+                <!-- Updates -->
+            </div>
+        </div>
+
     </main>
 
     <script>
@@ -89,21 +208,22 @@
         })();
     </script>
     <script src="../JavaScript/theme.js"></script>
+    <script src="../JavaScript/aboutUs.js"></script>
 
     <script 
             src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
             crossorigin="anonymous">
-        </script>
-        <script 
-            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous">
-        </script>
-        <script
-            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous">
-        </script>
+    </script>
+    <script 
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous">
+    </script>
+    <script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous">
+    </script>
 </body>
 </html>

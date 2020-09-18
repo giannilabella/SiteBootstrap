@@ -3,7 +3,7 @@ var page = window.location.search.substring(6);
 let pagesDiv = document.getElementById('pagination');
 
 page = page === "" ? 1 : Number(page);
-const LIMIT = 3;
+const LIMIT = 9;
 
 (() => {
 
