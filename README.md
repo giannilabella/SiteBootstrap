@@ -1,6 +1,6 @@
 <h1 align="center">
   <img height="40px" src="https://github.com/Gianni-Lab/SiteBootstrap/blob/master/Images/favicon.png">
-  <a href="https://gianni-lab.github.io/SiteBootstrap/">CookBook</a>
+  <a href="https://giannilabella.github.io/SiteBootstrap/">CookBook</a>
   <img height="40px" src="https://github.com/Gianni-Lab/SiteBootstrap/blob/master/Images/favicon.png">
 </h1>
 
